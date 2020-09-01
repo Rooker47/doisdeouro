@@ -5,7 +5,6 @@ from .views import PessoaCreate, ArmaCreate, RegistroRMBCreate, ContatoCreate, E
 from .views import PessoaUpdate, ArmaUpdate, RegistroRMBUpdate, ContatoUpdate, EnderecoUpdate, ViaturaUpdate, GuarnicaoUpdate
 from .views import PessoaDelete, ArmaDelete, RegistroRMBDelete, ContatoDelete, EnderecoDelete, ViaturaDelete, GuarnicaoDelete
 
-
 urlpatterns = [
     path('', Cadastros.as_view(), name='cadastrar'),
 

@@ -40,8 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'appCadastros.apps.CadastrosConfig',
-    'appListas.apps.ApplistasConfig',
- ]
+    'appListas.apps.ApplistasConfig'
+]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Meus Estudos - Listas {% endblock %}
+
+{% block logo %}
+{% endblock %}
+
+{% block conteudo %}
+<h1><i>Lista de Contatos Cadastrados</i>
+    <a href="{% url 'contatoNew' %}" class="bg-ifpr text-white p-1 btn-lg active mt-2 float-right">Novo Registro</a>
+</h1>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <tr>
+            <th>Nome</th>
+            <th>Telefone 1</th>
+            <th>Telefone 2</th>
+            <th>e-mail</th>
+            <th>Alterar / Excluir</th>
+        {% for contato in object_list %}
+        <tr>
+            <td>{{ contato.idPessoaContato }}</td>
+            <td>{{ contato.tel1 }}</td>
+            <td>{{ contato.tel2 }}</td>
+            <td>{{ contato.email }}</td>
+            <td>
+                <a href="{% url 'contatoUp' contato.pk %}" class="btn btn-warning btn-sm" title="Editar"><i class="fa fa-exchange"></i></a>
+                <a href="{% url 'contatoDel' contato.pk %}" class="btn btn-danger btn-sm" title="Excluir"><i class="fa fa-trash"></i></a>
+        </tr>
+         {% empty %}
+          <tr>
+            <td colspan="3">Nenhum registro encontrado</td>
+        </tr>
+         {% endfor %}
+        </tr>
+    </table>
+
+<!--= ESTRUTURA DE PAGINAÇÃO ===========================================================================================        -->
+        <div class="pagination">
+<span class="step-links">
+{% if page_obj.has_previous %}
+<a href="?page=1">&laquo; primeira -</a>
+<a href="?page={{ page_obj.previous_page_number }}">anterior -</a>
+{% endif %}
+<span class="current">
+Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}
+</span>
+{% if page_obj.has_next %}
+<a href="?page={{ page_obj.next_page_number }}">- próxima</a>
+<a href="?page={{ page_obj.paginator.num_pages }}">- última &raquo;</a>
+{% endif %}
+</span>
+<!--= FIM DA ESTRUTURA DE PAGINAÇÃO ====================================================================================        -->
+        </div>
+
+
+</div>
+{% endblock %}
