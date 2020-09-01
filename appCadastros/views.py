@@ -19,7 +19,7 @@ class PessoaCreate(LoginRequiredMixin, CreateView):
     model = Pessoa
     fields = ['graduacao', 'matricula', 'nome_guerra']
     template_name = 'appCadastros/form.html'
-    success_url = reverse_lazy('listar-pessoas')
+    success_url = reverse_lazy('pessoaList')
 
     def get_context_data(self, *args, **kwargs):
         contexto = super().get_context_data(*args, **kwargs)
@@ -34,7 +34,7 @@ class ArmaCreate(LoginRequiredMixin, CreateView):
     model = Arma
     fields = ['especie', 'tipo', 'numero']
     template_name = 'appCadastros/form.html'
-    success_url = reverse_lazy('listar-armas')
+    success_url = reverse_lazy('armaList')
 
     def get_context_data(self, *args, **kwargs):
         contexto = super().get_context_data(*args, **kwargs)
@@ -125,7 +125,7 @@ class PessoaUpdate(LoginRequiredMixin, UpdateView):
     model = Pessoa
     fields = ['graduacao', 'matricula', 'nome_guerra']
     template_name = 'appCadastros/form.html'
-    success_url = reverse_lazy('listar-pessoas')
+    success_url = reverse_lazy('pessoaList')
 
     def get_context_data(self, *args, **kwargs):
         contexto = super().get_context_data(*args, **kwargs)
@@ -139,8 +139,8 @@ class ArmaUpdate(LoginRequiredMixin, UpdateView):
     group_required = u"RMB"
     model = Arma
     fields = ['especie', 'tipo', 'numero']
-    template_name = 'form.html'
-    success_url = reverse_lazy('listar-armas')
+    template_name = 'appCadastros/form.html'
+    success_url = reverse_lazy('armaList')
 
     def get_context_data(self, *args, **kwargs):
         contexto = super().get_context_data(*args, **kwargs)

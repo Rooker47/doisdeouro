@@ -8,20 +8,17 @@ from django.urls import reverse_lazy
 class Listas(TemplateView):
     template_name = "appListas/listaPessoas.html"
 
-
 # ============================================= SEÇÃO LISTAR ===========================================================
 # LISTAR - PESSOA ========================================================================================================
 class PessoaList(LoginRequiredMixin, ListView):
     login_url = reverse_lazy('login')
     group_required = u"P1"
     model = Pessoa
-    fields = ['graduacao', 'matricula', 'nome_guerra']
     template_name = 'appListas/listaPessoas.html'
-    success_url = reverse_lazy('pessoaList')
 
     def get_context_data(self, *args, **kwargs):
         contexto = super().get_context_data(*args, **kwargs)
-        contexto['titulo'] = "Listar Pessoas"
+        contexto['titulo'] = "Lista de Pessoas Cadastradas"
         return contexto
 
 
@@ -31,7 +28,7 @@ class ArmaList(LoginRequiredMixin, ListView):
     group_required = u"RMB"
     model = Arma
     fields = ['especie', 'tipo', 'numero']
-    template_name = 'form.html'
+    template_name = 'appListas/listaArmas.html'
     success_url = reverse_lazy('armaList')
 
     def get_context_data(self, *args, **kwargs):
