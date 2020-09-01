@@ -315,12 +315,12 @@ class GuarnicaoDelete(LoginRequiredMixin, DeleteView):
     template_name = 'appCadastros/form-excluir.html'
     success_url = reverse_lazy('listar-guarnicao')
 
-  def get_context_data(self, *args, **kwargs):
-        contexto = super().get_context_data(*args, **kwargs)
-        contexto['titulo'] = "Deletar registro de Guarnição"
-        return contexto
+    def get_context_data(self, *args, **kwargs):
+            contexto = super().get_context_data(*args, **kwargs)
+            contexto['titulo'] = "Deletar registro de Guarnição"
+            return contexto
 
-#
+
 # # ============================================= SEÇÃO LISTAR ===========================================================
 # # LISTAR - ARMA ========================================================================================================
 # class PessoaList(GroupRequiredMixin, LoginRequiredMixin, ListView):
