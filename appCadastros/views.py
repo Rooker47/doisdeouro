@@ -1,7 +1,6 @@
 from django.views.generic import TemplateView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.list import ListView
-from braces.views import GroupRequiredMixin
 
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
