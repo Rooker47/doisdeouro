@@ -13,7 +13,7 @@ class Cadastros(TemplateView):
 
 # ============================================= SEÇÃO CREATE ===========================================================
 # CRIAR - PESSOA =======================================================================================================
-class PessoaCreate(GroupRequiredMixin, LoginRequiredMixin, CreateView):
+class PessoaCreate(LoginRequiredMixin, CreateView):
     login_url = reverse_lazy('login')
     group_required = u"P1"
     model = Pessoa
@@ -28,7 +28,7 @@ class PessoaCreate(GroupRequiredMixin, LoginRequiredMixin, CreateView):
 
 
 # CRIAR - ARMA =========================================================================================================
-class ArmaCreate(GroupRequiredMixin, LoginRequiredMixin, CreateView):
+class ArmaCreate(LoginRequiredMixin, CreateView):
     login_url = reverse_lazy('login')
     group_required = u"RMB"
     model = Arma
@@ -43,7 +43,7 @@ class ArmaCreate(GroupRequiredMixin, LoginRequiredMixin, CreateView):
 
 
 # CRIAR - REGISTRO RMB =================================================================================================
-class RegistroRMBCreate(GroupRequiredMixin, LoginRequiredMixin, CreateView):
+class RegistroRMBCreate(LoginRequiredMixin, CreateView):
     login_url = reverse_lazy('login')
     group_required = u"RMB"
     model = RegistroRMB
@@ -58,7 +58,7 @@ class RegistroRMBCreate(GroupRequiredMixin, LoginRequiredMixin, CreateView):
 
 
 # CRIAR - CONTATO ======================================================================================================
-class ContatoCreate(GroupRequiredMixin, LoginRequiredMixin, CreateView):
+class ContatoCreate(LoginRequiredMixin, CreateView):
     login_url = reverse_lazy('login')
     group_required = u"P1"
     model = Contato
@@ -73,7 +73,7 @@ class ContatoCreate(GroupRequiredMixin, LoginRequiredMixin, CreateView):
 
 
 # CRIAR - ENDEREÇO =====================================================================================================
-class EnderecoCreate(GroupRequiredMixin, LoginRequiredMixin, CreateView):
+class EnderecoCreate(LoginRequiredMixin, CreateView):
     login_url = reverse_lazy('login')
     group_required = u"P1"
     model = Endereco
@@ -88,7 +88,7 @@ class EnderecoCreate(GroupRequiredMixin, LoginRequiredMixin, CreateView):
 
 
 # CRIAR - VIATURA ======================================================================================================
-class ViaturaCreate(GroupRequiredMixin, LoginRequiredMixin, CreateView):
+class ViaturaCreate(LoginRequiredMixin, CreateView):
     login_url = reverse_lazy('login')
     group_required = u"STC"
     model = Viatura
@@ -103,7 +103,7 @@ class ViaturaCreate(GroupRequiredMixin, LoginRequiredMixin, CreateView):
 
 
 # CRIAR - GUARNIÇÕES ===================================================================================================
-class GuarnicaoCreate(GroupRequiredMixin, LoginRequiredMixin, CreateView):
+class GuarnicaoCreate(LoginRequiredMixin, CreateView):
     login_url = reverse_lazy('login')
     group_required = u"Central"
     model = Guarnicao
@@ -119,7 +119,7 @@ class GuarnicaoCreate(GroupRequiredMixin, LoginRequiredMixin, CreateView):
 
 # ============================================= SEÇÃO UPDATE ===========================================================
 # ATUALIZAR - PESSOA ===================================================================================================
-class PessoaUpdate(GroupRequiredMixin, LoginRequiredMixin, UpdateView):
+class PessoaUpdate(LoginRequiredMixin, UpdateView):
     login_url = reverse_lazy('login')
     group_required = u"P1"
     model = Pessoa
@@ -134,7 +134,7 @@ class PessoaUpdate(GroupRequiredMixin, LoginRequiredMixin, UpdateView):
 
 
 # ATUALIZAR - ARMA =====================================================================================================
-class ArmaUpdate(GroupRequiredMixin, LoginRequiredMixin, UpdateView):
+class ArmaUpdate(LoginRequiredMixin, UpdateView):
     login_url = reverse_lazy('login')
     group_required = u"RMB"
     model = Arma
@@ -149,7 +149,7 @@ class ArmaUpdate(GroupRequiredMixin, LoginRequiredMixin, UpdateView):
 
 
 # ATUALIZAR - REGISTRO RMB =============================================================================================
-class RegistroRMBUpdate(GroupRequiredMixin, LoginRequiredMixin, UpdateView):
+class RegistroRMBUpdate(LoginRequiredMixin, UpdateView):
     login_url = reverse_lazy('login')
     group_required = u"RMB"
     model = RegistroRMB
@@ -164,7 +164,7 @@ class RegistroRMBUpdate(GroupRequiredMixin, LoginRequiredMixin, UpdateView):
 
 
 # ATUALIZAR - CONTATO ==================================================================================================
-class ContatoUpdate(GroupRequiredMixin, LoginRequiredMixin, UpdateView):
+class ContatoUpdate(LoginRequiredMixin, UpdateView):
     login_url = reverse_lazy('login')
     group_required = u"P1"
     model = Contato
@@ -179,7 +179,7 @@ class ContatoUpdate(GroupRequiredMixin, LoginRequiredMixin, UpdateView):
 
 
 # ATUALIZAR - ENDEREÇO =================================================================================================
-class EnderecoUpdate(GroupRequiredMixin, LoginRequiredMixin, UpdateView):
+class EnderecoUpdate(LoginRequiredMixin, UpdateView):
     login_url = reverse_lazy('login')
     group_required = u"P1"
     model = Endereco
@@ -194,7 +194,7 @@ class EnderecoUpdate(GroupRequiredMixin, LoginRequiredMixin, UpdateView):
 
 
 # ATUALIZAR - VIATURA ==================================================================================================
-class ViaturaUpdate(GroupRequiredMixin, LoginRequiredMixin, UpdateView):
+class ViaturaUpdate(LoginRequiredMixin, UpdateView):
     login_url = reverse_lazy('login')
     group_required = u"STC"
     model = Viatura
@@ -209,7 +209,7 @@ class ViaturaUpdate(GroupRequiredMixin, LoginRequiredMixin, UpdateView):
 
 
 # ATUALIZAR - GUARNIÇÕES ===============================================================================================
-class GuarnicaoUpdate(GroupRequiredMixin, LoginRequiredMixin, UpdateView):
+class GuarnicaoUpdate(LoginRequiredMixin, UpdateView):
     login_url = reverse_lazy('login')
     group_required = u"Central"
     model = Guarnicao
@@ -225,7 +225,7 @@ class GuarnicaoUpdate(GroupRequiredMixin, LoginRequiredMixin, UpdateView):
 
 # ============================================= SEÇÃO DELETE ===========================================================
 # DELETE - PESSOA ======================================================================================================
-class PessoaDelete(GroupRequiredMixin, LoginRequiredMixin, DeleteView):
+class PessoaDelete(LoginRequiredMixin, DeleteView):
     login_url = reverse_lazy('login')
     group_required = u"P1"
     model = Pessoa
@@ -238,7 +238,7 @@ class PessoaDelete(GroupRequiredMixin, LoginRequiredMixin, DeleteView):
 
 
 # DELETE - ARMA ========================================================================================================
-class ArmaDelete(GroupRequiredMixin, LoginRequiredMixin, DeleteView):
+class ArmaDelete(LoginRequiredMixin, DeleteView):
     login_url = reverse_lazy('login')
     group_required = u"RMB"
     model = Arma
@@ -252,7 +252,7 @@ class ArmaDelete(GroupRequiredMixin, LoginRequiredMixin, DeleteView):
 
 
 # DELETE - REGISTRO R===MB =============================================================================================
-class RegistroRMBDelete(GroupRequiredMixin, LoginRequiredMixin, DeleteView):
+class RegistroRMBDelete(LoginRequiredMixin, DeleteView):
     login_url = reverse_lazy('login')
     group_required = u"RMB"
     model = RegistroRMB
@@ -266,7 +266,7 @@ class RegistroRMBDelete(GroupRequiredMixin, LoginRequiredMixin, DeleteView):
 
 
 # DELETE - CONTATO =====================================================================================================
-class ContatoDelete(GroupRequiredMixin, LoginRequiredMixin, DeleteView):
+class ContatoDelete(LoginRequiredMixin, DeleteView):
     login_url = reverse_lazy('login')
     group_required = u"P1"
     model = Contato
@@ -280,7 +280,7 @@ class ContatoDelete(GroupRequiredMixin, LoginRequiredMixin, DeleteView):
 
 
 # DELETE - ENDEREÇO ====================================================================================================
-class EnderecoDelete(GroupRequiredMixin, LoginRequiredMixin, DeleteView):
+class EnderecoDelete(LoginRequiredMixin, DeleteView):
     login_url = reverse_lazy('login')
     group_required = u"P1"
     model = Endereco
@@ -294,7 +294,7 @@ class EnderecoDelete(GroupRequiredMixin, LoginRequiredMixin, DeleteView):
 
 
 # DELETE - VIATURA =====================================================================================================
-class ViaturaDelete(GroupRequiredMixin, LoginRequiredMixin, DeleteView):
+class ViaturaDelete(LoginRequiredMixin, DeleteView):
     login_url = reverse_lazy('login')
     group_required = u"STC"
     model = Viatura
@@ -308,14 +308,14 @@ class ViaturaDelete(GroupRequiredMixin, LoginRequiredMixin, DeleteView):
 
 
 # DELETE - GUARNIÇÕES=== ===============================================================================================
-class GuarnicaoDelete(GroupRequiredMixin, LoginRequiredMixin, DeleteView):
+class GuarnicaoDelete(LoginRequiredMixin, DeleteView):
     login_url = reverse_lazy('login')
     group_required = u"Central"
     model = Guarnicao
     template_name = 'appCadastros/form-excluir.html'
     success_url = reverse_lazy('listar-guarnicao')
 
-    def get_context_data(self, *args, **kwargs):
+  def get_context_data(self, *args, **kwargs):
         contexto = super().get_context_data(*args, **kwargs)
         contexto['titulo'] = "Deletar registro de Guarnição"
         return contexto
