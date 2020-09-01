@@ -114,7 +114,7 @@ class GuarnicaoCreate(GroupRequiredMixin, LoginRequiredMixin, CreateView):
 
     def get_context_data(self, *args, **kwargs):
         contexto = super().get_context_data(*args, **kwargs)
-        contexto['titulo'] = "Cadastrar Guarnição"
+        contexto['titulo'] = "Cadastrar Guarnição na Central de Operações"
         return contexto
 
 
