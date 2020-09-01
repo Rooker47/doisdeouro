@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %} Meus Estudos - Cadastro {% endblock %}
+
+
+{% block logo %}
+{% endblock %}
+
+{% block main %}
+<h1>Excluir registro?</h1>
+<form action="" method="POST">
+ <hr>
+    <p>Deseja excluir o registro: {{ object }}?</p>
+
+
+    {% csrf_token %}
+
+    <div class="form-group" align="center">
+        {{ form }}
+    <hr>
+        <button type="submit" class="btn btn-danger">excluir</button>
+    </div>
+</form>
+{% endblock %}

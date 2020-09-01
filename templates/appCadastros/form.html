@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Meus Estudos - Cadastro {% endblock %}
+
+
+{% block logo %}
+{% endblock %}
+
+{% block conteudo %}
+<h1><i>{{ titulo }}</i></h1>
+
+<form action="" method="POST">
+    {% csrf_token %}
+
+    <div class="form-group" align="left">
+        {{ form.as_table }}
+
+        <button type="submit" class="bg-ifpr text-white p-1 btn-lg active mt-3">cadastrar</button>
+    </div>
+</form>
+
+{% endblock %}
