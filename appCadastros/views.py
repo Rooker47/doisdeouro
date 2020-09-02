@@ -1,6 +1,7 @@
 from django.views.generic import TemplateView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
+
 from django.contrib.auth.mixins import LoginRequiredMixin
 from braces.views import GroupRequiredMixin
 from django.urls import reverse_lazy
@@ -343,3 +344,4 @@ class GuarnicaoDelete(GroupRequiredMixin, LoginRequiredMixin, DeleteView):
         contexto['titulo'] = "Deletar registro de Guarnição"
         contexto['botao'] = "Deletar"
         return contexto
+
