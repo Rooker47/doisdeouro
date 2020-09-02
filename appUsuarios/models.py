@@ -7,3 +7,6 @@ class Perfil(models.Model):
     matriculaUsuario = models.IntegerField(null=True)
     telefoneUsuario = models.CharField(max_length=16, null=True)
     usuario = models.OneToOneField(User, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return "{}".format(self.usuario)
