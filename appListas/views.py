@@ -13,9 +13,8 @@ class Listas(TemplateView):
 
 # ============================================= SEÇÃO LISTAR ===========================================================
 # LISTAR - PESSOA ========================================================================================================
-class PessoaList(GroupRequiredMixin, LoginRequiredMixin, ListView):
+class PessoaList(LoginRequiredMixin, ListView):
     login_url = reverse_lazy('login')
-    group_required = u"P1"
     model = Pessoa
     template_name = 'appListas/listaPessoas.html'
     paginate_by = 10
@@ -27,9 +26,8 @@ class PessoaList(GroupRequiredMixin, LoginRequiredMixin, ListView):
 
 
 # LISTAR - ARMA ========================================================================================================
-class ArmaList(GroupRequiredMixin, LoginRequiredMixin, ListView):
+class ArmaList(LoginRequiredMixin, ListView):
     login_url = reverse_lazy('login')
-    group_required = u"RMB"
     model = Arma
     fields = ['especie', 'tipo', 'numero']
     template_name = 'appListas/listaArmas.html'
@@ -43,9 +41,8 @@ class ArmaList(GroupRequiredMixin, LoginRequiredMixin, ListView):
 
 
 # LISTAR - REGISTRO RMB ================================================================================================
-class RegistroRMBList(GroupRequiredMixin, LoginRequiredMixin, ListView):
+class RegistroRMBList(LoginRequiredMixin, ListView):
     login_url = reverse_lazy('login')
-    group_required = u"RMB"
     model = RegistroRMB
     fields = ['policial', 'arma']
     template_name = 'appListas/listaRegistrosRMB.html'
@@ -59,9 +56,8 @@ class RegistroRMBList(GroupRequiredMixin, LoginRequiredMixin, ListView):
 
 
 # LISTAR - CONTATO =====================================================================================================
-class ContatoList(GroupRequiredMixin, LoginRequiredMixin, ListView):
+class ContatoList(LoginRequiredMixin, ListView):
     login_url = reverse_lazy('login')
-    group_required = u"P1"
     model = Contato
     fields = ['idPessoaContato', 'tel1', 'tel2', 'email']
     template_name = 'appListas/listaContatos.html'
@@ -75,9 +71,8 @@ class ContatoList(GroupRequiredMixin, LoginRequiredMixin, ListView):
 
 
 # LISTAR - ENDEREÇO ====================================================================================================
-class EnderecoList(GroupRequiredMixin, LoginRequiredMixin, ListView):
+class EnderecoList(LoginRequiredMixin, ListView):
     login_url = reverse_lazy('login')
-    group_required = u"P1"
     model = Endereco
     fields = ['idPessoaEndereco', 'endereco', 'bairro', 'cidade', 'estado']
     template_name = 'appListas/listaEnderecos.html'
@@ -91,9 +86,8 @@ class EnderecoList(GroupRequiredMixin, LoginRequiredMixin, ListView):
 
 
 # LISTAR - VIATURA =====================================================================================================
-class ViaturaList(GroupRequiredMixin, LoginRequiredMixin, ListView):
+class ViaturaList(LoginRequiredMixin, ListView):
     login_url = reverse_lazy('login')
-    group_required = u"STC"
     model = Viatura
     fields = ['patrimonio', 'placa', 'chassis']
     template_name = 'appListas/listaViaturas.html'
@@ -107,9 +101,8 @@ class ViaturaList(GroupRequiredMixin, LoginRequiredMixin, ListView):
 
 
 # LISTAR - GUARNIÇÕES ==================================================================================================
-class GuarnicaoList(GroupRequiredMixin, LoginRequiredMixin, ListView):
+class GuarnicaoList(LoginRequiredMixin, ListView):
     login_url = reverse_lazy('login')
-    group_required = u"Central"
     model = Guarnicao
     fields = ['vtrPrefixo', 'vtr', 'condutor', 'kmInicial']
     template_name = 'appListas/listaGuarnicao.html'

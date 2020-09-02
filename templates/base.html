@@ -126,7 +126,7 @@
                                 <span id="username">{{ request.user }}</span>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="{% url 'atualizarPerfil' %}">
                                     <i class="fa fa-user" aria-hidden="true"></i>
                                     Meus dados</a>
                                 <a class="dropdown-item" href="#">
@@ -140,7 +140,7 @@
                         </li>
                         {% else %}
                         <li class="nav-item ">
-                            <a class="nav-link" href="{% url 'registrar' %}">
+                            <a class="nav-link" href="{% url 'criarPerfil' %}">
                                 <i class="fa fa-user-plus" aria-hidden="true"></i>
                                 Registrar
                             </a>
