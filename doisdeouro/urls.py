@@ -8,4 +8,5 @@ urlpatterns = [
 
     path('cadastrar/', include('appCadastros.urls'), name='cadastrar'),
     path('listar/', include('appListas.urls'), name='listar'),
+    path('usuarios/', include('appUsuarios.urls'), name='usuario'),
 ]

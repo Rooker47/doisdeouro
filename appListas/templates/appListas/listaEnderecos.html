@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %} Meus Estudos - Listas {% endblock %}
+
+{% block logo %}
+{% endblock %}
+
+{% block conteudo %}
+<h1><i>Lista de Endereços Cadastrados</i>
+    <a href="{% url 'enderecoNew' %}" class="bg-ifpr text-white p-1 btn-lg active mt-2 float-right">Novo Registro</a>
+</h1>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <tr>
+            <th>Nome</th>
+            <th>Endereço</th>
+            <th>Bairro</th>
+            <th>Cidade</th>
+            <th>Estado</th>
+            <th>Alterar / Excluir</th>
+        {% for endereco in object_list %}
+        <tr>
+            <td>{{ endereco.idPessoaEndereco }}</td>
+            <td>{{ endereco.endereco }}</td>
+            <td>{{ endereco.bairro }}</td>
+            <td>{{ endereco.cidade }}</td>
+            <td>{{ endereco.estado }}</td>
+            <td>
+                <a href="{% url 'enderecoUp' endereco.pk %}" class="btn btn-warning btn-sm" title="Editar"><i class="fa fa-exchange"></i></a>
+                <a href="{% url 'enderecoDel' endereco.pk %}" class="btn btn-danger btn-sm" title="Excluir"><i class="fa fa-trash"></i></a>
+            </td>
+        </tr>
+         {% empty %}
+<tr>
+            <td colspan="3">Nenhum registro encontrado</td>
+</tr>
+         {% endfor %}
+        </tr>
+    </table>
+
+<!--= ESTRUTURA DE PAGINAÇÃO ===========================================================================================        -->
+        <div class="pagination">
+<span class="step-links">
+{% if page_obj.has_previous %}
+<a href="?page=1">&laquo; primeira -</a>
+<a href="?page={{ page_obj.previous_page_number }}">anterior -</a>
+{% endif %}
+<span class="current">
+Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}
+</span>
+{% if page_obj.has_next %}
+<a href="?page={{ page_obj.next_page_number }}">- próxima</a>
+<a href="?page={{ page_obj.paginator.num_pages }}">- última &raquo;</a>
+{% endif %}
+</span>
+<!--= FIM DA ESTRUTURA DE PAGINAÇÃO ====================================================================================        -->
+        </div>
+
+
+</div>
+{% endblock %}
