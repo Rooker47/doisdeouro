@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'appCadastros.apps.CadastrosConfig',
     'appUsuarios.apps.AppusuariosConfig',
     'appListas.apps.ApplistasConfig',
-    "crispy_forms",
+    'crispy_forms',
 ]
 
 # Crispy_forms
