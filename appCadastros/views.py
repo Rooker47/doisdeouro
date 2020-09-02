@@ -2,6 +2,7 @@ from django.views.generic import TemplateView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 from django.contrib.auth.mixins import LoginRequiredMixin
+from braces.views import GroupRequiredMixin
 from django.urls import reverse_lazy
 
 from .models import Pessoa, Arma, RegistroRMB, Contato, Endereco, Viatura, Guarnicao
@@ -10,9 +11,10 @@ from .models import Pessoa, Arma, RegistroRMB, Contato, Endereco, Viatura, Guarn
 class Cadastros(TemplateView):
     template_name = "appCadastros/index.html"
 
+
 # ============================================= SEÇÃO CREATE ===========================================================
 # CRIAR - PESSOA =======================================================================================================
-class PessoaCreate(LoginRequiredMixin, CreateView):
+class PessoaCreate(GroupRequiredMixin, LoginRequiredMixin, CreateView):
     login_url = reverse_lazy('login')
     group_required = u"P1"
     model = Pessoa
@@ -23,11 +25,12 @@ class PessoaCreate(LoginRequiredMixin, CreateView):
     def get_context_data(self, *args, **kwargs):
         contexto = super().get_context_data(*args, **kwargs)
         contexto['titulo'] = "Cadastrar Pessoas"
+        contexto['botao'] = "Cadastrar"
         return contexto
 
 
 # CRIAR - ARMA =========================================================================================================
-class ArmaCreate(LoginRequiredMixin, CreateView):
+class ArmaCreate(GroupRequiredMixin, LoginRequiredMixin, CreateView):
     login_url = reverse_lazy('login')
     group_required = u"RMB"
     model = Arma
@@ -38,11 +41,12 @@ class ArmaCreate(LoginRequiredMixin, CreateView):
     def get_context_data(self, *args, **kwargs):
         contexto = super().get_context_data(*args, **kwargs)
         contexto['titulo'] = "Cadastrar Armamento"
+        contexto['botao'] = "Cadastrar"
         return contexto
 
 
 # CRIAR - REGISTRO RMB =================================================================================================
-class RegistroRMBCreate(LoginRequiredMixin, CreateView):
+class RegistroRMBCreate(GroupRequiredMixin, LoginRequiredMixin, CreateView):
     login_url = reverse_lazy('login')
     group_required = u"RMB"
     model = RegistroRMB
@@ -51,13 +55,14 @@ class RegistroRMBCreate(LoginRequiredMixin, CreateView):
     success_url = reverse_lazy('listar-registroRMB')
 
     def get_context_data(self, *args, **kwargs):
-        contexto = super().get_context_data(*args, **kwargs)
+        contexto =  super().get_context_data(*args, **kwargs)
         contexto['titulo'] = "Cadastrar Registro na RMB"
+        contexto['botao'] = "Cadastrar"
         return contexto
 
 
 # CRIAR - CONTATO ======================================================================================================
-class ContatoCreate(LoginRequiredMixin, CreateView):
+class ContatoCreate(GroupRequiredMixin, LoginRequiredMixin, CreateView):
     login_url = reverse_lazy('login')
     group_required = u"P1"
     model = Contato
@@ -68,11 +73,12 @@ class ContatoCreate(LoginRequiredMixin, CreateView):
     def get_context_data(self, *args, **kwargs):
         contexto = super().get_context_data(*args, **kwargs)
         contexto['titulo'] = "Cadastrar Contato"
+        contexto['botao'] = "Cadastrar"
         return contexto
 
 
 # CRIAR - ENDEREÇO =====================================================================================================
-class EnderecoCreate(LoginRequiredMixin, CreateView):
+class EnderecoCreate(GroupRequiredMixin, LoginRequiredMixin, CreateView):
     login_url = reverse_lazy('login')
     group_required = u"P1"
     model = Endereco
@@ -83,11 +89,12 @@ class EnderecoCreate(LoginRequiredMixin, CreateView):
     def get_context_data(self, *args, **kwargs):
         contexto = super().get_context_data(*args, **kwargs)
         contexto['titulo'] = "Cadastrar Endereço"
+        contexto['botao'] = "Cadastrar"
         return contexto
 
 
 # CRIAR - VIATURA ======================================================================================================
-class ViaturaCreate(LoginRequiredMixin, CreateView):
+class ViaturaCreate(GroupRequiredMixin, LoginRequiredMixin, CreateView):
     login_url = reverse_lazy('login')
     group_required = u"STC"
     model = Viatura
@@ -98,11 +105,12 @@ class ViaturaCreate(LoginRequiredMixin, CreateView):
     def get_context_data(self, *args, **kwargs):
         contexto = super().get_context_data(*args, **kwargs)
         contexto['titulo'] = "Cadastrar Viatura"
+        contexto['botao'] = "Cadastrar"
         return contexto
 
 
 # CRIAR - GUARNIÇÕES ===================================================================================================
-class GuarnicaoCreate(LoginRequiredMixin, CreateView):
+class GuarnicaoCreate(GroupRequiredMixin, LoginRequiredMixin, CreateView):
     login_url = reverse_lazy('login')
     group_required = u"Central"
     model = Guarnicao
@@ -113,12 +121,13 @@ class GuarnicaoCreate(LoginRequiredMixin, CreateView):
     def get_context_data(self, *args, **kwargs):
         contexto = super().get_context_data(*args, **kwargs)
         contexto['titulo'] = "Cadastrar Guarnição na Central de Operações"
+        contexto['botao'] = "Cadastrar"
         return contexto
 
 
 # ============================================= SEÇÃO UPDATE ===========================================================
 # ATUALIZAR - PESSOA ===================================================================================================
-class PessoaUpdate(LoginRequiredMixin, UpdateView):
+class PessoaUpdate(GroupRequiredMixin, LoginRequiredMixin, UpdateView):
     login_url = reverse_lazy('login')
     group_required = u"P1"
     model = Pessoa
@@ -126,14 +135,16 @@ class PessoaUpdate(LoginRequiredMixin, UpdateView):
     template_name = 'appCadastros/form.html'
     success_url = reverse_lazy('pessoaList')
 
+
     def get_context_data(self, *args, **kwargs):
         contexto = super().get_context_data(*args, **kwargs)
         contexto['titulo'] = "Atualizar Pessoas"
+        contexto['botao'] = "Atualizar"
         return contexto
 
 
 # ATUALIZAR - ARMA =====================================================================================================
-class ArmaUpdate(LoginRequiredMixin, UpdateView):
+class ArmaUpdate(GroupRequiredMixin, LoginRequiredMixin, UpdateView):
     login_url = reverse_lazy('login')
     group_required = u"RMB"
     model = Arma
@@ -144,11 +155,12 @@ class ArmaUpdate(LoginRequiredMixin, UpdateView):
     def get_context_data(self, *args, **kwargs):
         contexto = super().get_context_data(*args, **kwargs)
         contexto['titulo'] = "Atualizar Armamento"
+        contexto['botao'] = "Atualizar"
         return contexto
 
 
 # ATUALIZAR - REGISTRO RMB =============================================================================================
-class RegistroRMBUpdate(LoginRequiredMixin, UpdateView):
+class RegistroRMBUpdate(GroupRequiredMixin, LoginRequiredMixin, UpdateView):
     login_url = reverse_lazy('login')
     group_required = u"RMB"
     model = RegistroRMB
@@ -159,11 +171,12 @@ class RegistroRMBUpdate(LoginRequiredMixin, UpdateView):
     def get_context_data(self, *args, **kwargs):
         contexto = super().get_context_data(*args, **kwargs)
         contexto['titulo'] = "Atualizar Registro da RMB"
+        contexto['botao'] = "Atualizar"
         return contexto
 
 
 # ATUALIZAR - CONTATO ==================================================================================================
-class ContatoUpdate(LoginRequiredMixin, UpdateView):
+class ContatoUpdate(GroupRequiredMixin, LoginRequiredMixin, UpdateView):
     login_url = reverse_lazy('login')
     group_required = u"P1"
     model = Contato
@@ -174,11 +187,12 @@ class ContatoUpdate(LoginRequiredMixin, UpdateView):
     def get_context_data(self, *args, **kwargs):
         contexto = super().get_context_data(*args, **kwargs)
         contexto['titulo'] = "Atualizar Contato"
+        contexto['botao'] = "Atualizar"
         return contexto
 
 
 # ATUALIZAR - ENDEREÇO =================================================================================================
-class EnderecoUpdate(LoginRequiredMixin, UpdateView):
+class EnderecoUpdate(GroupRequiredMixin, LoginRequiredMixin, UpdateView):
     login_url = reverse_lazy('login')
     group_required = u"P1"
     model = Endereco
@@ -189,11 +203,12 @@ class EnderecoUpdate(LoginRequiredMixin, UpdateView):
     def get_context_data(self, *args, **kwargs):
         contexto = super().get_context_data(*args, **kwargs)
         contexto['titulo'] = "Atualizar Endereço"
+        contexto['botao'] = "Atualizar"
         return contexto
 
 
 # ATUALIZAR - VIATURA ==================================================================================================
-class ViaturaUpdate(LoginRequiredMixin, UpdateView):
+class ViaturaUpdate(GroupRequiredMixin, LoginRequiredMixin, UpdateView):
     login_url = reverse_lazy('login')
     group_required = u"STC"
     model = Viatura
@@ -204,11 +219,12 @@ class ViaturaUpdate(LoginRequiredMixin, UpdateView):
     def get_context_data(self, *args, **kwargs):
         contexto = super().get_context_data(*args, **kwargs)
         contexto['titulo'] = "Atualizar Viatura"
+        contexto['botao'] = "Atualizar"
         return contexto
 
 
 # ATUALIZAR - GUARNIÇÕES ===============================================================================================
-class GuarnicaoUpdate(LoginRequiredMixin, UpdateView):
+class GuarnicaoUpdate(GroupRequiredMixin, LoginRequiredMixin, UpdateView):
     login_url = reverse_lazy('login')
     group_required = u"Central"
     model = Guarnicao
@@ -219,26 +235,28 @@ class GuarnicaoUpdate(LoginRequiredMixin, UpdateView):
     def get_context_data(self, *args, **kwargs):
         contexto = super().get_context_data(*args, **kwargs)
         contexto['titulo'] = "Atualizar Guarnição"
+        contexto['botao'] = "Atualizar"
         return contexto
 
 
 # ============================================= SEÇÃO DELETE ===========================================================
 # DELETE - PESSOA ======================================================================================================
-class PessoaDelete(LoginRequiredMixin, DeleteView):
+class PessoaDelete(GroupRequiredMixin, LoginRequiredMixin, DeleteView):
     login_url = reverse_lazy('login')
     group_required = u"P1"
     model = Pessoa
     template_name = 'appCadastros/form-excluir.html'
-    success_url = reverse_lazy('pessoasList')
+    success_url = reverse_lazy('pessoaList')
 
     def get_context_data(self, *args, **kwargs):
         contexto = super().get_context_data(*args, **kwargs)
         contexto['titulo'] = "Deletar registro de Pessoas"
+        contexto['botao'] = "Deletar"
         return contexto
 
 
 # DELETE - ARMA ========================================================================================================
-class ArmaDelete(LoginRequiredMixin, DeleteView):
+class ArmaDelete(GroupRequiredMixin, LoginRequiredMixin, DeleteView):
     login_url = reverse_lazy('login')
     group_required = u"RMB"
     model = Arma
@@ -248,11 +266,12 @@ class ArmaDelete(LoginRequiredMixin, DeleteView):
     def get_context_data(self, *args, **kwargs):
         contexto = super().get_context_data(*args, **kwargs)
         contexto['titulo'] = "Deletar registro de Armamento"
+        contexto['botao'] = "Deletar"
         return contexto
 
 
 # DELETE - REGISTRO R===MB =============================================================================================
-class RegistroRMBDelete(LoginRequiredMixin, DeleteView):
+class RegistroRMBDelete(GroupRequiredMixin, LoginRequiredMixin, DeleteView):
     login_url = reverse_lazy('login')
     group_required = u"RMB"
     model = RegistroRMB
@@ -262,11 +281,12 @@ class RegistroRMBDelete(LoginRequiredMixin, DeleteView):
     def get_context_data(self, *args, **kwargs):
         contexto = super().get_context_data(*args, **kwargs)
         contexto['titulo'] = "Deletar registro na RMB"
+        contexto['botao'] = "Deletar"
         return contexto
 
 
 # DELETE - CONTATO =====================================================================================================
-class ContatoDelete(LoginRequiredMixin, DeleteView):
+class ContatoDelete(GroupRequiredMixin, LoginRequiredMixin, DeleteView):
     login_url = reverse_lazy('login')
     group_required = u"P1"
     model = Contato
@@ -276,11 +296,12 @@ class ContatoDelete(LoginRequiredMixin, DeleteView):
     def get_context_data(self, *args, **kwargs):
         contexto = super().get_context_data(*args, **kwargs)
         contexto['titulo'] = "Deletar registro de Contato"
+        contexto['botao'] = "Deletar"
         return contexto
 
 
 # DELETE - ENDEREÇO ====================================================================================================
-class EnderecoDelete(LoginRequiredMixin, DeleteView):
+class EnderecoDelete(GroupRequiredMixin, LoginRequiredMixin, DeleteView):
     login_url = reverse_lazy('login')
     group_required = u"P1"
     model = Endereco
@@ -290,11 +311,12 @@ class EnderecoDelete(LoginRequiredMixin, DeleteView):
     def get_context_data(self, *args, **kwargs):
         contexto = super().get_context_data(*args, **kwargs)
         contexto['titulo'] = "Deletar registro de Endereço"
+        contexto['botao'] = "Deletar"
         return contexto
 
 
 # DELETE - VIATURA =====================================================================================================
-class ViaturaDelete(LoginRequiredMixin, DeleteView):
+class ViaturaDelete(GroupRequiredMixin, LoginRequiredMixin, DeleteView):
     login_url = reverse_lazy('login')
     group_required = u"STC"
     model = Viatura
@@ -304,11 +326,12 @@ class ViaturaDelete(LoginRequiredMixin, DeleteView):
     def get_context_data(self, *args, **kwargs):
         contexto = super().get_context_data(*args, **kwargs)
         contexto['titulo'] = "Deletar registro de Viatura"
+        contexto['botao'] = "Deletar"
         return contexto
 
 
 # DELETE - GUARNIÇÕES=== ===============================================================================================
-class GuarnicaoDelete(LoginRequiredMixin, DeleteView):
+class GuarnicaoDelete(GroupRequiredMixin, LoginRequiredMixin, DeleteView):
     login_url = reverse_lazy('login')
     group_required = u"Central"
     model = Guarnicao
@@ -316,7 +339,7 @@ class GuarnicaoDelete(LoginRequiredMixin, DeleteView):
     success_url = reverse_lazy('guarnicaoList')
 
     def get_context_data(self, *args, **kwargs):
-            contexto = super().get_context_data(*args, **kwargs)
-            contexto['titulo'] = "Deletar registro de Guarnição"
-            return contexto
-
+        contexto = super().get_context_data(*args, **kwargs)
+        contexto['titulo'] = "Deletar registro de Guarnição"
+        contexto['botao'] = "Deletar"
+        return contexto

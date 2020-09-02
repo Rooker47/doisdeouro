@@ -8,7 +8,7 @@
 {% block logo %}
 {% endblock %}
 
-{% block main %}
+{% block conteudo %}
 <h1>Excluir registro?</h1>
 <form action="" method="POST">
  <hr>
@@ -20,7 +20,7 @@
     <div class="form-group" align="center">
         {{ form }}
     <hr>
-        <button type="submit" class="btn btn-danger">excluir</button>
+        <button type="submit" class="btn btn-danger">{{ botao }}</button>
     </div>
 </form>
 {% endblock %}

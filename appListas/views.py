@@ -2,6 +2,7 @@ from django.views.generic import TemplateView
 from django.views.generic.list import ListView
 
 from django.contrib.auth.mixins import LoginRequiredMixin
+from braces.views import GroupRequiredMixin
 from django.urls import reverse_lazy
 
 from appCadastros.models import Pessoa, Arma, RegistroRMB, Contato, Endereco, Viatura, Guarnicao
@@ -12,7 +13,7 @@ class Listas(TemplateView):
 
 # ============================================= SEÇÃO LISTAR ===========================================================
 # LISTAR - PESSOA ========================================================================================================
-class PessoaList(LoginRequiredMixin, ListView):
+class PessoaList(GroupRequiredMixin, LoginRequiredMixin, ListView):
     login_url = reverse_lazy('login')
     group_required = u"P1"
     model = Pessoa
@@ -26,7 +27,7 @@ class PessoaList(LoginRequiredMixin, ListView):
 
 
 # LISTAR - ARMA ========================================================================================================
-class ArmaList(LoginRequiredMixin, ListView):
+class ArmaList(GroupRequiredMixin, LoginRequiredMixin, ListView):
     login_url = reverse_lazy('login')
     group_required = u"RMB"
     model = Arma
@@ -42,7 +43,7 @@ class ArmaList(LoginRequiredMixin, ListView):
 
 
 # LISTAR - REGISTRO RMB ================================================================================================
-class RegistroRMBList(LoginRequiredMixin, ListView):
+class RegistroRMBList(GroupRequiredMixin, LoginRequiredMixin, ListView):
     login_url = reverse_lazy('login')
     group_required = u"RMB"
     model = RegistroRMB
@@ -58,7 +59,7 @@ class RegistroRMBList(LoginRequiredMixin, ListView):
 
 
 # LISTAR - CONTATO =====================================================================================================
-class ContatoList(LoginRequiredMixin, ListView):
+class ContatoList(GroupRequiredMixin, LoginRequiredMixin, ListView):
     login_url = reverse_lazy('login')
     group_required = u"P1"
     model = Contato
@@ -74,7 +75,7 @@ class ContatoList(LoginRequiredMixin, ListView):
 
 
 # LISTAR - ENDEREÇO ====================================================================================================
-class EnderecoList(LoginRequiredMixin, ListView):
+class EnderecoList(GroupRequiredMixin, LoginRequiredMixin, ListView):
     login_url = reverse_lazy('login')
     group_required = u"P1"
     model = Endereco
@@ -90,7 +91,7 @@ class EnderecoList(LoginRequiredMixin, ListView):
 
 
 # LISTAR - VIATURA =====================================================================================================
-class ViaturaList(LoginRequiredMixin, ListView):
+class ViaturaList(GroupRequiredMixin, LoginRequiredMixin, ListView):
     login_url = reverse_lazy('login')
     group_required = u"STC"
     model = Viatura
@@ -106,7 +107,7 @@ class ViaturaList(LoginRequiredMixin, ListView):
 
 
 # LISTAR - GUARNIÇÕES ==================================================================================================
-class GuarnicaoList(LoginRequiredMixin, ListView):
+class GuarnicaoList(GroupRequiredMixin, LoginRequiredMixin, ListView):
     login_url = reverse_lazy('login')
     group_required = u"Central"
     model = Guarnicao
