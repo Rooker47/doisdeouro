@@ -7,7 +7,7 @@ from .views import PessoaDelete, ArmaDelete, RegistroRMBDelete, ContatoDelete, E
 
 
 urlpatterns = [
-    path('', Cadastros.as_view(), name='cadastrar'),
+    path('cadastrar/', Cadastros.as_view(), name='cadastrar'),
 
     path('pessoa/', PessoaCreate.as_view(), name='pessoaNew'),
     path('arma/', ArmaCreate.as_view(), name='armaNew'),

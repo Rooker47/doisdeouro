@@ -14,19 +14,17 @@
 <div class="table-responsive">
     <table class="table table-striped">
         <tr>
-            <th>Prefixo</th>
             <th>Patrimônio</th>
-            <th>Condutor</th>
-            <th>Km Inicial</th>
+            <th>Placas</th>
+            <th>Km Chassis</th>
             <th>Alterar / Excluir</th>
             {% for viatura in object_list %}
         </tr>
         <tr>
-            <td>{{ viatura.vtrPrefixo }}</td>
-            <td>{{ viatura.vtr }}</td>
-            <td>{{ viatura.condutor }}</td>
-            <td>{{ viatura.kmInicial }}</td>
-            <td>
+            <td>{{ viatura.patrimonio }}</td>
+            <td>{{ viatura.placa }}</td>
+            <td>{{ viatura.chassis }}</td>
+        <td>
                 <a href="{% url 'viaturaUp' viatura.pk %}" class="btn btn-warning btn-sm" title="Editar"><i class="fa fa-exchange"></i></a>
                 <a href="{% url 'viaturaDel' viatura.pk %}" class="btn btn-danger btn-sm" title="Excluir"><i class="fa fa-trash"></i></a>
             </td>

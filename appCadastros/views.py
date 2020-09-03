@@ -1,7 +1,6 @@
 from django.views.generic import TemplateView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
-
 from django.contrib.auth.mixins import LoginRequiredMixin
 from braces.views import GroupRequiredMixin
 from django.urls import reverse_lazy
@@ -51,9 +50,9 @@ class RegistroRMBCreate(GroupRequiredMixin, LoginRequiredMixin, CreateView):
     login_url = reverse_lazy('login')
     group_required = u"RMB"
     model = RegistroRMB
-    fields = ['policial', 'arma']
+    fields = ['policial', 'arma', 'data']
     template_name = 'appCadastros/form.html'
-    success_url = reverse_lazy('listar-registroRMB')
+    success_url = reverse_lazy('rmbList')
 
     def get_context_data(self, *args, **kwargs):
         contexto =  super().get_context_data(*args, **kwargs)
@@ -115,7 +114,7 @@ class GuarnicaoCreate(GroupRequiredMixin, LoginRequiredMixin, CreateView):
     login_url = reverse_lazy('login')
     group_required = u"Central"
     model = Guarnicao
-    fields = ['vtrPrefixo', 'vtr', 'condutor', 'kmInicial']
+    fields = ['vtrPrefixo', 'vtr', 'condutor', 'kmInicial', 'data']
     template_name = 'appCadastros/form.html'
     success_url = reverse_lazy('guarnicaoList')
 
@@ -167,7 +166,7 @@ class RegistroRMBUpdate(GroupRequiredMixin, LoginRequiredMixin, UpdateView):
     model = RegistroRMB
     fields = ['policial', 'arma']
     template_name = 'appCadastros/form.html'
-    success_url = reverse_lazy('listar-registroRMB')
+    success_url = reverse_lazy('rmbList')
 
     def get_context_data(self, *args, **kwargs):
         contexto = super().get_context_data(*args, **kwargs)
@@ -277,7 +276,7 @@ class RegistroRMBDelete(GroupRequiredMixin, LoginRequiredMixin, DeleteView):
     group_required = u"RMB"
     model = RegistroRMB
     template_name = 'appCadastros/form-excluir.html'
-    success_url = reverse_lazy('listar-registroRMB')
+    success_url = reverse_lazy('rmbList')
 
     def get_context_data(self, *args, **kwargs):
         contexto = super().get_context_data(*args, **kwargs)

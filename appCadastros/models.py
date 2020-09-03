@@ -1,4 +1,6 @@
 from django.db import models
+from django.utils import timezone
+
 
 GRADUACAO = [
     ('TC PM', 'Ten Cel PM'),
@@ -63,6 +65,13 @@ ARMA_TIPO = [
     ('Fz', 'Fuzil'),
 ]
 
+PREFIXOS = [
+    ('22000', 'operações'),
+    ('22100', 'nazaré'),
+    ('22115', 'CarpinaI'),
+    ('22116', 'CarpinaII'),
+]
+
 # PESSOA ===============================================================================================================
 class Pessoa(models.Model):
     graduacao = models.CharField(max_length=12, verbose_name="graduação", choices=GRADUACAO)
@@ -85,6 +94,7 @@ class Arma(models.Model):
 class RegistroRMB(models.Model):
     policial = models.ForeignKey(Pessoa, on_delete=models.CASCADE, verbose_name="identificação")
     arma = models.ForeignKey(Arma, on_delete=models.CASCADE)
+    data = models.DateTimeField(default=timezone.now, auto_now=False, verbose_name="registro em")
 
     def __str__(self):
         return "{} {}".format(self.policial, self.arma)
@@ -121,7 +131,11 @@ class Viatura(models.Model):
 
 # GUARNIÇÕES ===========================================================================================================
 class Guarnicao(models.Model):
-    vtrPrefixo = models.CharField(max_length=7, primary_key=True, verbose_name="prefixo")
+    vtrPrefixo = models.CharField(max_length=9, primary_key=True, verbose_name="prefixo", choices=PREFIXOS)
     vtr = models.ForeignKey(Viatura, on_delete=models.CASCADE, verbose_name="patrimônio")
     condutor = models.ForeignKey(Pessoa, on_delete=models.CASCADE)
     kmInicial = models.IntegerField(verbose_name="Km inicial")
+    data = models.DateTimeField(default=timezone.now, auto_now=False, verbose_name="registro em")
+
+    def __str__(self):
+        return "{}".format(self.vtr)

@@ -15,7 +15,7 @@ class Listas(TemplateView):
 class PessoaList(LoginRequiredMixin, ListView):
     login_url = reverse_lazy('login')
     model = Pessoa
-    template_name = 'appCadastros/listaPessoas.html'
+    template_name = 'appListas/listaPessoas.html'
     paginate_by = 10
 
     def get_context_data(self, *args, **kwargs):
@@ -29,8 +29,7 @@ class ArmaList(LoginRequiredMixin, ListView):
     login_url = reverse_lazy('login')
     model = Arma
     fields = ['especie', 'tipo', 'numero']
-    template_name = 'appCadastros/listaArmas.html'
-    success_url = reverse_lazy('armaList')
+    template_name = 'appListas/listaArmas.html'
     paginate_by = 10
 
     def get_context_data(self, *args, **kwargs):
@@ -43,9 +42,8 @@ class ArmaList(LoginRequiredMixin, ListView):
 class RegistroRMBList(LoginRequiredMixin, ListView):
     login_url = reverse_lazy('login')
     model = RegistroRMB
-    fields = ['policial', 'arma']
-    template_name = 'appCadastros/listaRegistrosRMB.html'
-    success_url = reverse_lazy('rmbList')
+    fields = ['policial', 'arma', 'data']
+    template_name = 'appListas/listaRegistrosRMB.html'
     paginate_by = 10
 
     def get_context_data(self, *args, **kwargs):
@@ -59,8 +57,7 @@ class ContatoList(LoginRequiredMixin, ListView):
     login_url = reverse_lazy('login')
     model = Contato
     fields = ['idPessoaContato', 'tel1', 'tel2', 'email']
-    template_name = 'appCadastros/listaContatos.html'
-    success_url = reverse_lazy('contatoList')
+    template_name = 'appListas/listaContatos.html'
     paginate_by = 10
 
     def get_context_data(self, *args, **kwargs):
@@ -74,8 +71,7 @@ class EnderecoList(LoginRequiredMixin, ListView):
     login_url = reverse_lazy('login')
     model = Endereco
     fields = ['idPessoaEndereco', 'endereco', 'bairro', 'cidade', 'estado']
-    template_name = 'appCadastros/listaEnderecos.html'
-    success_url = reverse_lazy('enderecoList')
+    template_name = 'appListas/listaEnderecos.html'
     paginate_by = 10
 
     def get_context_data(self, *args, **kwargs):
@@ -89,8 +85,7 @@ class ViaturaList(LoginRequiredMixin, ListView):
     login_url = reverse_lazy('login')
     model = Viatura
     fields = ['patrimonio', 'placa', 'chassis']
-    template_name = 'appCadastros/listaViaturas.html'
-    success_url = reverse_lazy('viaturaList')
+    template_name = 'appListas/listaViaturas.html'
     paginate_by = 10
 
     def get_context_data(self, *args, **kwargs):
@@ -103,9 +98,8 @@ class ViaturaList(LoginRequiredMixin, ListView):
 class GuarnicaoList(LoginRequiredMixin, ListView):
     login_url = reverse_lazy('login')
     model = Guarnicao
-    fields = ['vtrPrefixo', 'vtr', 'condutor', 'kmInicial']
-    template_name = 'appCadastros/listaGuarnicao.html'
-    success_url = reverse_lazy('guarnicaoList')
+    fields = ['vtrPrefixo', 'vtr', 'condutor', 'kmInicial', 'data']
+    template_name = 'appListas/listaGuarnicao.html'
     paginate_by = 10
 
     def get_context_data(self, *args, **kwargs):
