@@ -67,7 +67,7 @@ ARMA_TIPO = [
 class Pessoa(models.Model):
     graduacao = models.CharField(max_length=12, verbose_name="graduação", choices=GRADUACAO)
     matricula = models.IntegerField(primary_key=True)
-    nome_guerra = models.CharField(max_length=30)
+    nome_guerra = models.CharField(max_length=30, verbose_name="nome de guerra")
 
     def __str__(self):
         return "{} {}".format(self.graduacao, self.nome_guerra)
@@ -83,7 +83,7 @@ class Arma(models.Model):
 
 # REGISTRO RMB =========================================================================================================
 class RegistroRMB(models.Model):
-    policial = models.ForeignKey(Pessoa, on_delete=models.CASCADE)
+    policial = models.ForeignKey(Pessoa, on_delete=models.CASCADE, verbose_name="identificação")
     arma = models.ForeignKey(Arma, on_delete=models.CASCADE)
 
     def __str__(self):
@@ -91,21 +91,21 @@ class RegistroRMB(models.Model):
 
 # CONTATO ==============================================================================================================
 class Contato(models.Model):
-    tel1 = models.CharField(max_length=16)
-    tel2 = models.CharField(max_length=16, null=True, blank=True)
-    email = models.EmailField(default=None)
-    idPessoaContato = models.OneToOneField(Pessoa, on_delete=models.CASCADE)
+    tel1 = models.CharField(max_length=16, verbose_name="telefone")
+    tel2 = models.CharField(max_length=16, null=True, blank=True, verbose_name="telefone")
+    email = models.EmailField(default=None, verbose_name="e-mail")
+    idPessoaContato = models.OneToOneField(Pessoa, on_delete=models.CASCADE, verbose_name="identificação")
 
     def __str__(self):
         return "{}".format(self.idPessoaContato)
 
 # ENDEREÇO =============================================================================================================
 class Endereco(models.Model):
-    endereco = models.CharField(max_length=50)
+    endereco = models.CharField(max_length=50, verbose_name="endereço")
     cidade = models.CharField(max_length=30, choices=CIDADE)
     bairro = models.CharField(max_length=30)
     estado = models.CharField(max_length=2, choices=ESTADO, default='PE')
-    idPessoaEndereco = models.OneToOneField(Pessoa, on_delete=models.CASCADE)
+    idPessoaEndereco = models.OneToOneField(Pessoa, on_delete=models.CASCADE, verbose_name="identificação")
 
     def __str__(self):
         return "{}".format(self.idPessoaEndereco)
@@ -121,7 +121,7 @@ class Viatura(models.Model):
 
 # GUARNIÇÕES ===========================================================================================================
 class Guarnicao(models.Model):
-    vtrPrefixo = models.CharField(max_length=7, primary_key=True)
-    vtr = models.ForeignKey(Viatura, on_delete=models.CASCADE)
+    vtrPrefixo = models.CharField(max_length=7, primary_key=True, verbose_name="prefixo")
+    vtr = models.ForeignKey(Viatura, on_delete=models.CASCADE, verbose_name="patrimônio")
     condutor = models.ForeignKey(Pessoa, on_delete=models.CASCADE)
-    kmInicial = models.IntegerField()
+    kmInicial = models.IntegerField(verbose_name="Km inicial")
