@@ -14,20 +14,20 @@
 <div class="table-responsive">
     <table class="table table-striped">
         <tr>
-            <th>Prefixo</th>
-            <th>Patrimônio</th>
-            <th>Condutor</th>
-            <th>Km Inicial</th>
-            <th>Data</th>
-            <th>Alterar / Excluir</th>
+            <th class="text-center">Prefixo</th>
+            <th class="text-center">Patrimônio</th>
+            <th class="text-center">Condutor</th>
+            <th class="text-center">Km Inicial</th>
+            <th class="text-center">Data</th>
+            <th class="text-center">Alterar / Excluir</th>
         {% for guarnicao in object_list %}
         <tr>
-            <td>{{ guarnicao.vtrPrefixo }}</td>
-            <td>{{ guarnicao.vtr }}</td>
-            <td>{{ guarnicao.condutor }}</td>
-            <td>{{ guarnicao.kmInicial }}</td>
-            <td>{{ guarnicao.data }}</td>
-            <td>
+            <td class="text-center">{{ guarnicao.vtrPrefixo }}</td>
+            <td class="text-center">{{ guarnicao.vtr }}</td>
+            <td class="text-center">{{ guarnicao.condutor }}</td>
+            <td class="text-center">{{ guarnicao.kmInicial }}</td>
+            <td class="text-center">{{ guarnicao.data }}</td>
+            <td class="text-center">
                 <a href="{% url 'guarnicaoUp' guarnicao.pk %}" class="btn btn-warning btn-sm" title="Editar"><i class="fa fa-exchange"></i></a>
                 <a href="{% url 'guarnicaoDel' guarnicao.pk %}" class="btn btn-danger btn-sm" title="Excluir"><i class="fa fa-trash"></i></a>
         </tr>

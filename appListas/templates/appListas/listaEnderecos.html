@@ -14,20 +14,20 @@
 <div class="table-responsive">
     <table class="table table-striped">
         <tr>
-            <th>Nome</th>
-            <th>Endereço</th>
-            <th>Bairro</th>
-            <th>Cidade</th>
-            <th>Estado</th>
-            <th>Alterar / Excluir</th>
+            <th class="text-center">Nome</th>
+            <th class="text-center">Endereço</th>
+            <th class="text-center">Bairro</th>
+            <th class="text-center">Cidade</th>
+            <th class="text-center">Estado</th>
+            <th class="text-center">Alterar / Excluir</th>
         {% for endereco in object_list %}
         <tr>
-            <td>{{ endereco.idPessoaEndereco }}</td>
-            <td>{{ endereco.endereco }}</td>
-            <td>{{ endereco.bairro }}</td>
-            <td>{{ endereco.cidade }}</td>
-            <td>{{ endereco.estado }}</td>
-            <td>
+            <td class="text-center">{{ endereco.idPessoaEndereco }}</td>
+            <td class="text-center">{{ endereco.endereco }}</td>
+            <td class="text-center">{{ endereco.bairro }}</td>
+            <td class="text-center">{{ endereco.cidade }}</td>
+            <td class="text-center">{{ endereco.estado }}</td>
+            <td class="text-center">
                 <a href="{% url 'enderecoUp' endereco.pk %}" class="btn btn-warning btn-sm" title="Editar"><i class="fa fa-exchange"></i></a>
                 <a href="{% url 'enderecoDel' endereco.pk %}" class="btn btn-danger btn-sm" title="Excluir"><i class="fa fa-trash"></i></a>
             </td>

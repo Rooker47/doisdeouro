@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
-{% load crispy_forms_tags %}
+{% load crispy_forms_tags %} class="text-center"
 
 {% block title %} Meus Estudos - Listas {% endblock %}
 
@@ -14,16 +14,16 @@
 <div class="table-responsive">
     <table class="table table-striped">
         <tr>
-             <th>Graduação</th>
-            <th>Matrícula</th>
-            <th>Nome</th>
-            <th>Alterar / Excluir</th>
+            <th class="text-center">Graduação</th>
+            <th class="text-center">Matrícula</th>
+            <th class="text-center">Nome</th>
+            <th class="text-center">Alterar / Excluir</th>
         {% for pessoa in object_list %}
          <tr>
-         <td>{{ pessoa.graduacao }}</td>
-            <td>{{ pessoa.matricula }}</td>
-            <td>{{ pessoa.nome_guerra }}</td>
-            <td>
+            <td class="text-center">{{ pessoa.graduacao }}</td>
+            <td class="text-center">{{ pessoa.matricula }}</td>
+            <td class="text-center">{{ pessoa.nome_guerra }}</td>
+            <td class="text-center">
                 <a href="{% url 'pessoaUp' pessoa.pk %}" class="btn btn-warning btn-sm" title="Editar"><i class="fa fa-exchange"></i></a>
                 <a href="{% url 'pessoaDel' pessoa.pk %}" class="btn btn-danger btn-sm" title="Excluir"><i class="fa fa-trash"></i></a>
         </tr>

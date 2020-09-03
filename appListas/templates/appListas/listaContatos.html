@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
-{% load crispy_forms_tags %}
+{% load crispy_forms_tags %} class="text-center"
 
 {% block title %} Meus Estudos - Listas {% endblock %}
 
@@ -14,18 +14,18 @@
 <div class="table-responsive">
     <table class="table table-striped">
         <tr>
-            <th>Nome</th>
-            <th>Telefone 1</th>
-            <th>Telefone 2</th>
-            <th>e-mail</th>
-            <th>Alterar / Excluir</th>
+            <th class="text-center">Nome</th>
+            <th class="text-center">Telefone 1</th>
+            <th class="text-center">Telefone 2</th>
+            <th class="text-center">e-mail</th>
+            <th class="text-center">Alterar / Excluir</th>
         {% for contato in object_list %}
         <tr>
-            <td>{{ contato.idPessoaContato }}</td>
-            <td>{{ contato.tel1 }}</td>
-            <td>{{ contato.tel2 }}</td>
-            <td>{{ contato.email }}</td>
-            <td>
+            <td class="text-center">{{ contato.idPessoaContato }}</td>
+            <td class="text-center">{{ contato.tel1 }}</td>
+            <td class="text-center">{{ contato.tel2 }}</td>
+            <td class="text-center">{{ contato.email }}</td>
+            <td class="text-center">
                 <a href="{% url 'contatoUp' contato.pk %}" class="btn btn-warning btn-sm" title="Editar"><i class="fa fa-exchange"></i></a>
                 <a href="{% url 'contatoDel' contato.pk %}" class="btn btn-danger btn-sm" title="Excluir"><i class="fa fa-trash"></i></a>
         </tr>
