@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'appCore.apps.AppcoreConfig',
     'appMaterial.apps.AppprodutoConfig',
     'appEstoque.apps.AppestoqueConfig',
-    'daterange_filter',
     'crispy_forms',
 ]
 
