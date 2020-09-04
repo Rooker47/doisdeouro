@@ -37,12 +37,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'appCadastros.apps.CadastrosConfig',
+# MINHAS APPs =========================================================================================================
+    'appDelete.apps.AppdeleteConfig',
+    'appCreate.apps.AppcreateConfig',
+    'appUpdate.apps.AppupdateConfig',
     'appUsuarios.apps.AppusuariosConfig',
     'appListas.apps.ApplistasConfig',
-    'appCore.apps.AppcoreConfig',
-    'appMaterial.apps.AppprodutoConfig',
-    'appEstoque.apps.AppestoqueConfig',
+# APPs de plugins =====================================================================================================
     'daterange_filter',
     'crispy_forms',
 ]

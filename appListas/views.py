@@ -4,16 +4,15 @@ from django.views.generic.list import ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 
-from appCadastros.models import Pessoa, Arma, RegistroRMB, Contato, Endereco, Viatura, Guarnicao
+from appCreate.models import Pessoa, Arma, RegistroRMB, Contato, Endereco, Viatura, Guarnicao
 
 
 class Listas(TemplateView):
     template_name = "appListas/index.html"
 
-# ============================================= SEÇÃO LISTAR ===========================================================
 # LISTAR - PESSOA ========================================================================================================
 class PessoaList(LoginRequiredMixin, ListView):
-    login_url = reverse_lazy('login')
+    login_url = reverse_lazy('index')
     model = Pessoa
     template_name = 'appListas/listaPessoas.html'
     paginate_by = 10

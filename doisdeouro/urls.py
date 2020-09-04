@@ -6,7 +6,9 @@ urlpatterns = [
     path('', IndexView.as_view(), name='index'),
     path('admin/', admin.site.urls),
 
-    path('cadastrar/', include('appCadastros.urls'), name='cadastrar'),
-    path('listar/', include('appListas.urls'), name='listar'),
+    path('cadastrar/', include('appCreate.urls'), name='cadastrar'),
+    path('atualizar/', include('appUpdate.urls'), name='atualizar'),
+    path('apagar/', include('appDelete.urls'), name='apagar'),
+    path('listar/', include('appListas.urls')),
     path('usuarios/', include('appUsuarios.urls'), name='usuarios'),
 ]
