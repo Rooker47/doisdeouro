@@ -1,7 +1,5 @@
 from django.views.generic import TemplateView
 from django.views.generic.edit import CreateView
-from django.contrib.auth.models import User
-from django.core.exceptions import ValidationError
 
 from django.contrib.auth.mixins import LoginRequiredMixin
 from braces.views import GroupRequiredMixin
@@ -24,7 +22,7 @@ class PessoaCreate(GroupRequiredMixin, LoginRequiredMixin, CreateView):
 
     def get_context_data(self, *args, **kwargs):
         contexto = super().get_context_data(*args, **kwargs)
-        contexto['titulo'] = "Cadastrar Pessoas"
+        contexto['titulo'] = "Pecúlio - Identificação"
         contexto['botao'] = "Cadastrar"
         return contexto
 
@@ -72,7 +70,7 @@ class ContatoCreate(GroupRequiredMixin, LoginRequiredMixin, CreateView):
 
     def get_context_data(self, *args, **kwargs):
         contexto = super().get_context_data(*args, **kwargs)
-        contexto['titulo'] = "Cadastrar Contato"
+        contexto['titulo'] = "Pecúlio - Informações de Contato"
         contexto['botao'] = "Cadastrar"
         return contexto
 
@@ -88,7 +86,7 @@ class EnderecoCreate(GroupRequiredMixin, LoginRequiredMixin, CreateView):
 
     def get_context_data(self, *args, **kwargs):
         contexto = super().get_context_data(*args, **kwargs)
-        contexto['titulo'] = "Cadastrar Endereço"
+        contexto['titulo'] = "Pecúlio - Endereços"
         contexto['botao'] = "Cadastrar"
         return contexto
 

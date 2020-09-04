@@ -10,15 +10,11 @@
 
 {% block conteudo %}
 <h1><i>{{ titulo }}</i></h1>
-
 <form action="" method="POST">
     {% csrf_token %}
-
     <div class="form-group" align="left">
         {{ form|crispy }}
-
         <button type="submit" class="bg-ifpr text-white p-1 btn-lg active mt-3">{{ botao }}</button>
     </div>
 </form>
-
 {% endblock %}
