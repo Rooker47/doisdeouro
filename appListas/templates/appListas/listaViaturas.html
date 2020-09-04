@@ -27,7 +27,6 @@
         <tr>
             <th class="text-center">Patrimônio</th>
             <th class="text-center">Placas</th>
-            <th class="text-center">Km Chassis</th>
             <th class="text-center">Status</th>
             <th class="text-center">Alterar / Excluir</th>
             {% for viatura in object_list %}
@@ -35,18 +34,13 @@
         <tr>
             <td class="text-center">{{ viatura.patrimonio }}</td>
             <td class="text-center">{{ viatura.placa }}</td>
-            <td class="text-center">{{ viatura.chassis }}</td>
-
-
             <td class="text-center">
                     {% if viatura.status %}
-            <i class="fa fa-check-circle ok"></i>
+                <i class="fa fa-check-circle ok" title="Ativada"></i>
                     {% else %}
-                <i class="fa fa-minus-circle no"></i>
+                <i class="fa fa-minus-circle no" title="Baixada"></i>
                     </td>
                     {% endif %}
-
-
             <td class="text-center">
                 <a href="{% url 'viaturaUp' viatura.pk %}" class="btn btn-warning btn-sm" title="Editar"><i class="fa fa-exchange"></i></a>
                 <a href="{% url 'viaturaDel' viatura.pk %}" class="btn btn-danger btn-sm" title="Excluir"><i class="fa fa-trash"></i></a>

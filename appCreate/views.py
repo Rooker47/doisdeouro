@@ -1,5 +1,7 @@
 from django.views.generic import TemplateView
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic.edit import CreateView
+from django.contrib.auth.models import User
+from django.core.exceptions import ValidationError
 
 from django.contrib.auth.mixins import LoginRequiredMixin
 from braces.views import GroupRequiredMixin
@@ -50,7 +52,7 @@ class RegistroRMBCreate(GroupRequiredMixin, LoginRequiredMixin, CreateView):
     model = RegistroRMB
     fields = ['policial', 'arma', 'data']
     template_name = 'appCreate/form.html'
-    success_url = reverse_lazy('rmbList')
+    success_url = reverse_lazy('registroRMBList')
 
     def get_context_data(self, *args, **kwargs):
         contexto =  super().get_context_data(*args, **kwargs)

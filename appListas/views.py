@@ -47,7 +47,7 @@ class RegistroRMBList(LoginRequiredMixin, ListView):
 
     def get_context_data(self, *args, **kwargs):
         contexto = super().get_context_data(*args, **kwargs)
-        contexto['titulo'] = "Listar Registro da RMB"
+        contexto['titulo'] = "Listar Registro na RMB"
         return contexto
 
 

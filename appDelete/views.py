@@ -47,7 +47,7 @@ class RegistroRMBDelete(GroupRequiredMixin, LoginRequiredMixin, DeleteView):
     group_required = u"RMB"
     model = RegistroRMB
     template_name = 'appDelete/form-excluir.html'
-    success_url = reverse_lazy('rmbList')
+    success_url = reverse_lazy('registroRMBList')
 
     def get_context_data(self, *args, **kwargs):
         contexto = super().get_context_data(*args, **kwargs)

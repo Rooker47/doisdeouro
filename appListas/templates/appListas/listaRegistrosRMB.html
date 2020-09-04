@@ -18,14 +18,14 @@
             <th class="text-center">Arma</th>
             <th class="text-center">Data</th>
             <th class="text-center">Alterar / Excluir</th>
-            {% for RegistroRMB in object_list %}
+            {% for registroRMB in object_list %}
          <tr>
-            <td class="text-center">{{ RegistroRMB.policial }}</td>
-            <td class="text-center">{{ RegistroRMB.arma }}</td>
-            <td class="text-center">{{ RegistroRMB.data }}</td>
+            <td class="text-center">{{ registroRMB.policial }}</td>
+            <td class="text-center">{{ registroRMB.arma }}</td>
+            <td class="text-center">{{ registroRMB.data }}</td>
             <td class="text-center">
-                <a href="{% url 'RegistroRMBUp' RegistroRMB.pk %}" class="btn btn-warning btn-sm" title="Editar"><i class="fa fa-exchange"></i></a>
-                <a href="{% url 'RegistroRMBDel' RegistroRMB.pk %}" class="btn btn-danger btn-sm" title="Excluir"><i class="fa fa-trash"></i></a>
+                <a href="{% url 'registroRMBUp' registroRMB.pk %}" class="btn btn-warning btn-sm" title="Editar"><i class="fa fa-exchange"></i></a>
+                <a href="{% url 'registroRMBDel' registroRMB.pk %}" class="btn btn-danger btn-sm" title="Excluir"><i class="fa fa-trash"></i></a>
         </tr>
          {% empty %}
           <tr>
