@@ -1,4 +1,5 @@
 from django.db import models
+from django import forms
 from django.utils import timezone
 
 
@@ -125,6 +126,7 @@ class Viatura(models.Model):
     patrimonio = models.IntegerField(primary_key=True)
     placa = models.CharField(max_length=7)
     chassis = models.CharField(max_length=25)
+    status = models.BooleanField(default=None, verbose_name='Ativada')
 
     def __str__(self):
         return "{}".format(self.patrimonio)

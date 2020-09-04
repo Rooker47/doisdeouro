@@ -96,7 +96,7 @@ class ViaturaUpdate(GroupRequiredMixin, LoginRequiredMixin, UpdateView):
     login_url = reverse_lazy('login')
     group_required = u"STC"
     model = Viatura
-    fields = ['patrimonio', 'placa', 'chassis']
+    fields = ['patrimonio', 'placa', 'chassis', 'status']
     template_name = 'appCreate/form.html'
     success_url = reverse_lazy('viaturaList')
 
