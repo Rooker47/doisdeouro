@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'appCreate.apps.AppcreateConfig',
     'appCore.apps.AppcoreConfig',
     'appDelete.apps.AppdeleteConfig',
+    'appEstoque.apps.AppestoqueConfig',
     'appListas.apps.ApplistasConfig',
     'appUpdate.apps.AppupdateConfig',
     'appUsuarios.apps.AppusuariosConfig',
