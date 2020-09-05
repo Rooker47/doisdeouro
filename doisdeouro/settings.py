@@ -38,11 +38,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 # MINHAS APPs =========================================================================================================
-    'appDelete.apps.AppdeleteConfig',
     'appCreate.apps.AppcreateConfig',
+    'appCore.apps.AppcoreConfig',
+    'appDelete.apps.AppdeleteConfig',
+    'appListas.apps.ApplistasConfig',
     'appUpdate.apps.AppupdateConfig',
     'appUsuarios.apps.AppusuariosConfig',
-    'appListas.apps.ApplistasConfig',
 
 # APPs de plugins =====================================================================================================
     'daterange_filter',
