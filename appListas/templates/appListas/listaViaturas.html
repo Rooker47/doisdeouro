@@ -34,33 +34,28 @@
         <tr>
             <td class="text-center">{{ viatura.patrimonio }}</td>
             <td class="text-center">{{ viatura.placa }}</td>
+
             <td class="text-center">
-                    {% if viatura.status %}
-<<<<<<< Updated upstream
+{% if viatura.status %}
                 <i class="fa fa-check-circle ok" title="Ativada"></i>
-=======
-            <i class="fa fa-check-circle ok" title="Ativada"></i>
->>>>>>> Stashed changes
-                    {% else %}
+{% else %}
                 <i class="fa fa-minus-circle no" title="Baixada"></i>
-                    </td>
-                    {% endif %}
+{% endif %}
+            </td>
             <td class="text-center">
                 <a href="{% url 'viaturaUp' viatura.pk %}" class="btn btn-warning btn-sm" title="Editar"><i class="fa fa-exchange"></i></a>
                 <a href="{% url 'viaturaDel' viatura.pk %}" class="btn btn-danger btn-sm" title="Excluir"><i class="fa fa-trash"></i></a>
             </td>
         </tr>
-
-        {% empty %}
+                {% empty %}
         <tr>
-        <td colspan="3">Nenhum registro encontrado</td>
+            <td colspan="3">Nenhum registro encontrado</td>
         </tr>
         {% endfor %}
-        </tr>
     </table>
 
 <!--= ESTRUTURA DE PAGINAÇÃO ===========================================================================================        -->
-        <div class="pagination">
+    <div class="pagination">
 <span class="step-links">
 {% if page_obj.has_previous %}
 <a href="?page=1">&laquo; primeira -</a>
