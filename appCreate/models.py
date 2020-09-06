@@ -1,5 +1,5 @@
 from django.db import models
-from django import forms
+from django.db import utils
 from django.utils import timezone
 
 
@@ -94,7 +94,7 @@ class Arma(models.Model):
 # REGISTRO RMB =========================================================================================================
 class RegistroRMB(models.Model):
     policial = models.ForeignKey(Pessoa, on_delete=models.CASCADE, verbose_name="identificação")
-    arma = models.ForeignKey(Arma, on_delete=models.CASCADE)
+    arma = models.ForeignKey(Arma, unique=True, on_delete=models.CASCADE)
     data = models.DateTimeField(default=timezone.now, auto_now=False, verbose_name="registro em")
 
     def __str__(self):
@@ -134,7 +134,7 @@ class Viatura(models.Model):
 # GUARNIÇÕES ===========================================================================================================
 class Guarnicao(models.Model):
     vtrPrefixo = models.CharField(max_length=9, primary_key=True, verbose_name="prefixo", choices=PREFIXOS)
-    vtr = models.ForeignKey(Viatura, on_delete=models.CASCADE, verbose_name="patrimônio")
+    vtr = models.ForeignKey(Viatura, on_delete=models.CASCADE, verbose_name="patrimônio", unique=True)
     condutor = models.ForeignKey(Pessoa, on_delete=models.CASCADE)
     kmInicial = models.IntegerField(verbose_name="Km inicial")
     data = models.DateTimeField(default=timezone.now, auto_now=False, verbose_name="registro em")

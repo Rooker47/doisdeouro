@@ -17,7 +17,7 @@ class PessoaCreate(GroupRequiredMixin, LoginRequiredMixin, CreateView):
     group_required = u"P1"
     model = Pessoa
     fields = ['graduacao', 'matricula', 'nome_guerra']
-    template_name = 'appCreate/form.html'
+    template_name = 'appCore/form.html'
     success_url = reverse_lazy('pessoaList')
 
     def get_context_data(self, *args, **kwargs):
@@ -33,7 +33,7 @@ class ArmaCreate(GroupRequiredMixin, LoginRequiredMixin, CreateView):
     group_required = u"RMB"
     model = Arma
     fields = ['especie', 'tipo', 'numero']
-    template_name = 'appCreate/form.html'
+    template_name = 'appCore/form.html'
     success_url = reverse_lazy('armaList')
 
     def get_context_data(self, *args, **kwargs):
@@ -49,7 +49,7 @@ class RegistroRMBCreate(GroupRequiredMixin, LoginRequiredMixin, CreateView):
     group_required = u"RMB"
     model = RegistroRMB
     fields = ['policial', 'arma', 'data']
-    template_name = 'appCreate/form.html'
+    template_name = 'appCore/form.html'
     success_url = reverse_lazy('registroRMBList')
 
     def get_context_data(self, *args, **kwargs):
@@ -65,7 +65,7 @@ class ContatoCreate(GroupRequiredMixin, LoginRequiredMixin, CreateView):
     group_required = u"P1"
     model = Contato
     fields = ['idPessoaContato', 'tel1', 'tel2', 'email']
-    template_name = 'appCreate/form.html'
+    template_name = 'appCore/form.html'
     success_url = reverse_lazy('contatoList')
 
     def get_context_data(self, *args, **kwargs):
@@ -81,7 +81,7 @@ class EnderecoCreate(GroupRequiredMixin, LoginRequiredMixin, CreateView):
     group_required = u"P1"
     model = Endereco
     fields = ['idPessoaEndereco', 'endereco', 'bairro', 'cidade', 'estado']
-    template_name = 'appCreate/form.html'
+    template_name = 'appCore/form.html'
     success_url = reverse_lazy('enderecoList')
 
     def get_context_data(self, *args, **kwargs):
@@ -97,7 +97,7 @@ class ViaturaCreate(GroupRequiredMixin, LoginRequiredMixin, CreateView):
     group_required = u"STC"
     model = Viatura
     fields = ['patrimonio', 'placa', 'chassis', 'status']
-    template_name = 'appCreate/form.html'
+    template_name = 'appCore/form.html'
     success_url = reverse_lazy('viaturaList')
 
     def get_context_data(self, *args, **kwargs):
@@ -113,7 +113,7 @@ class GuarnicaoCreate(GroupRequiredMixin, LoginRequiredMixin, CreateView):
     group_required = u"Central"
     model = Guarnicao
     fields = ['vtrPrefixo', 'vtr', 'condutor', 'kmInicial', 'data']
-    template_name = 'appCreate/form.html'
+    template_name = 'appCore/form.html'
     success_url = reverse_lazy('guarnicaoList')
 
     def get_context_data(self, *args, **kwargs):

@@ -11,4 +11,5 @@ urlpatterns = [
     path('apagar/', include('appDelete.urls'), name='apagar'),
     path('listar/', include('appListas.urls'), name='listar'),
     path('usuarios/', include('appUsuarios.urls'), name='usuarios'),
+    path('estoque/', include('appEstoque.urls'), name='estoque'),
 ]
