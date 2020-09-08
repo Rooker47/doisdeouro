@@ -49,7 +49,6 @@ INSTALLED_APPS = [
     'appUsuarios.apps.AppusuariosConfig',
 
 # APPs de plugins =====================================================================================================
-    'daterange_filter',
     'crispy_forms',
 ]
 
