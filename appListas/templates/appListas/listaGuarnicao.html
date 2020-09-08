@@ -8,8 +8,8 @@
 {% endblock %}
 
 {% block conteudo %}
-<h1><i>Lista de Guarnições Cadastrados</i>
-    <a href="{% url 'guarnicaoNew' %}" class="bg-ifpr text-white p-1 btn-lg active mt-2 float-right">Novo Registro</a>
+<h1><i>{{ titulo }}</i></h1>
+    <a href="{% url 'guarnicaoNew' %}" class="bg-ifpr text-white p-1 btn-lg active mt-1 float-right">Novo Registro</a>
 </h1>
 <div class="table-responsive">
     <table class="table table-striped">

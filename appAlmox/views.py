@@ -6,11 +6,11 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from braces.views import GroupRequiredMixin
 from django.urls import reverse_lazy
 
-from .models import Entrada, Saida
+from .models import Entrada, Saida, Saldo
 
 
 class Estoque(TemplateView):
-    template_name = "appEstoque/index.html"
+    template_name = "appAlmox/index.html"
 
 # ================================================ SEÇÃO ENTRADA =======================================================
 # CRIAR - ENTRADA ======================================================================================================
@@ -18,7 +18,7 @@ class EntradaCreate(GroupRequiredMixin, LoginRequiredMixin, CreateView):
     login_url = reverse_lazy('login')
     group_required = u"Almoxarifado"
     model = Entrada
-    fields = ['material', 'quant', 'data', 'nf']
+    fields = ['nc', 'nomeMaterialEntrada', 'quantMaterialEntrada', 'data', 'nf', 'estoque_minimo']
     template_name = 'appCore/form.html'
     success_url = reverse_lazy('entradaList')
 
@@ -34,9 +34,9 @@ class EntradaUpdate(GroupRequiredMixin, LoginRequiredMixin, UpdateView):
     login_url = reverse_lazy('login')
     group_required = u"Almoxarifado"
     model = Entrada
-    fields = ['material', 'quant', 'data', 'nf']
+    fields = ['nc', 'nomeMaterialEntrada', 'quantMaterialEntrada', 'data', 'nf', 'estoque_minimo']
     template_name = 'appCore/form.html'
-    success_url = reverse_lazy('estoqueList')
+    success_url = reverse_lazy('entradaList')
 
 
     def get_context_data(self, *args, **kwargs):
@@ -49,9 +49,8 @@ class EntradaUpdate(GroupRequiredMixin, LoginRequiredMixin, UpdateView):
 # DELETE - ENTRADA =====================================================================================================
 class EntradaDelete(GroupRequiredMixin, LoginRequiredMixin, DeleteView):
     login_url = reverse_lazy('login')
-    group_required = u"Almoxarifado"
+    group_required = u""
     model = Entrada
-    fields = ['material', 'quant', 'data', 'nf']
     template_name = 'appCore/form-excluir.html'
     success_url = reverse_lazy('estoqueList')
 
@@ -66,12 +65,12 @@ class EntradaDelete(GroupRequiredMixin, LoginRequiredMixin, DeleteView):
 class EntradaList(LoginRequiredMixin, ListView):
     login_url = reverse_lazy('index')
     model = Entrada
-    template_name = 'appEstoque/listaEstoque.html'
+    template_name = 'appAlmox/listaEstoqueEntrada.html'
     paginate_by = 10
 
     def get_context_data(self, *args, **kwargs):
         contexto = super().get_context_data(*args, **kwargs)
-        contexto['titulo'] = "Lista de Pessoas Cadastradas"
+        contexto['titulo'] = "Lista de entrada de material"
         return contexto
 
 # ================================================ SEÇÃO SAIDA =========================================================
@@ -80,13 +79,13 @@ class SaidaCreate(GroupRequiredMixin, LoginRequiredMixin, CreateView):
     login_url = reverse_lazy('login')
     group_required = u"Almoxarifado"
     model = Saida
-    fields = ['material', 'quant', 'data', 'destino', 'recebedor']
+    fields = ['nc', 'nomeMaterialSaida', 'quantMaterialSaida', 'data', 'destino', 'recebedor']
     template_name = 'appCore/form.html'
-    success_url = reverse_lazy('estoqueList')
+    success_url = reverse_lazy('saidaList')
 
     def get_context_data(self, *args, **kwargs):
         contexto = super().get_context_data(*args, **kwargs)
-        contexto['titulo'] = "Nova entrada de material"
+        contexto['titulo'] = "Nova saída de material"
         contexto['botao'] = "Registrar"
         return contexto
 
@@ -96,14 +95,14 @@ class SaidaUpdate(GroupRequiredMixin, LoginRequiredMixin, UpdateView):
     login_url = reverse_lazy('login')
     group_required = u"Almoxarifado"
     model = Saida
-    fields = ['material', 'quant', 'data', 'destino', 'recebedor']
+    fields = ['nc', 'nomeMaterialSaida', 'quantMaterialSaida', 'data', 'destino', 'recebedor']
     template_name = 'appCore/form.html'
-    success_url = reverse_lazy('estoqueList')
+    success_url = reverse_lazy('saidaList')
 
 
     def get_context_data(self, *args, **kwargs):
         contexto = super().get_context_data(*args, **kwargs)
-        contexto['titulo'] = "Atualizar entrada de material"
+        contexto['titulo'] = "Atualizar saída de material"
         contexto['botao'] = "Atualizar"
         return contexto
 
@@ -111,15 +110,14 @@ class SaidaUpdate(GroupRequiredMixin, LoginRequiredMixin, UpdateView):
 # DELETE - SAIDA =======================================================================================================
 class SaidaDelete(GroupRequiredMixin, LoginRequiredMixin, DeleteView):
     login_url = reverse_lazy('login')
-    group_required = u"Almoxarifado"
+    group_required = u""
     model = Saida
-    fields = ['material', 'quant', 'data', 'destino', 'recebedor']
     template_name = 'appCore/form-excluir.html'
-    success_url = reverse_lazy('estoqueList')
+    success_url = reverse_lazy('saidaList')
 
     def get_context_data(self, *args, **kwargs):
         contexto = super().get_context_data(*args, **kwargs)
-        contexto['titulo'] = "Deletar registro de entrada de material"
+        contexto['titulo'] = "Deletar registro de saída de material"
         contexto['botao'] = "Deletar"
         return contexto
 
@@ -128,10 +126,72 @@ class SaidaDelete(GroupRequiredMixin, LoginRequiredMixin, DeleteView):
 class SaidaList(LoginRequiredMixin, ListView):
     login_url = reverse_lazy('index')
     model = Saida
-    template_name = 'appEstoque/listaEstoque.html'
+    template_name = 'appAlmox/listaEstoqueSaida.html'
     paginate_by = 10
 
     def get_context_data(self, *args, **kwargs):
         contexto = super().get_context_data(*args, **kwargs)
-        contexto['titulo'] = "Lista de Pessoas Cadastradas"
+        contexto['titulo'] = "Lista de saída de material"
+        return contexto
+
+
+# ================================================ SEÇÃO SALDO =========================================================
+# CRIAR - SALDO ========================================================================================================
+class SaldoCreate(GroupRequiredMixin, LoginRequiredMixin, CreateView):
+    login_url = reverse_lazy('login')
+    group_required = u"Almoxarifado"
+    model = Saldo
+    fields = ['nc', 'nomeMaterialSaida', 'quantMaterialSaida', 'data', 'destino', 'recebedor']
+    template_name = 'appCore/form.html'
+    success_url = reverse_lazy('saldoList')
+
+    def get_context_data(self, *args, **kwargs):
+        contexto = super().get_context_data(*args, **kwargs)
+        contexto['titulo'] = "Nova saída de material"
+        contexto['botao'] = "Registrar"
+        return contexto
+
+
+# ATUALIZAR - SALDO ====================================================================================================
+class SaldoUpdate(GroupRequiredMixin, LoginRequiredMixin, UpdateView):
+    login_url = reverse_lazy('login')
+    group_required = u"Almoxarifado"
+    model = Saldo
+    fields = ['nc', 'nomeMaterialSaida', 'quantMaterialSaida', 'data', 'destino', 'recebedor']
+    template_name = 'appCore/form.html'
+    success_url = reverse_lazy('saldoList')
+
+
+    def get_context_data(self, *args, **kwargs):
+        contexto = super().get_context_data(*args, **kwargs)
+        contexto['titulo'] = "Atualizar saída de material"
+        contexto['botao'] = "Atualizar"
+        return contexto
+
+
+# DELETE - SALDO =======================================================================================================
+class SaldoDelete(GroupRequiredMixin, LoginRequiredMixin, DeleteView):
+    login_url = reverse_lazy('login')
+    group_required = u""
+    model = Saldo
+    template_name = 'appCore/form-excluir.html'
+    success_url = reverse_lazy('saldoList')
+
+    def get_context_data(self, *args, **kwargs):
+        contexto = super().get_context_data(*args, **kwargs)
+        contexto['titulo'] = "Deletar registro de saída de material"
+        contexto['botao'] = "Deletar"
+        return contexto
+
+
+# LISTAR - SALDO =======================================================================================================
+class SaldoList(LoginRequiredMixin, ListView):
+    login_url = reverse_lazy('index')
+    model = Saldo
+    template_name = 'appAlmox/listaEstoqueSaida.html'
+    paginate_by = 10
+
+    def get_context_data(self, *args, **kwargs):
+        contexto = super().get_context_data(*args, **kwargs)
+        contexto['titulo'] = "Lista de saída de material"
         return contexto

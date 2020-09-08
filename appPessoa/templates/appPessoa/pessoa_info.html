@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Meus Estudos - Cadastro {% endblock %}
+
+
+{% block logo %}
+{% endblock %}
+
+{% block conteudo %}
+<h1><i>{{ titulo }}</i></h1>
+
+<div class="table sm-6">
+    <table class="table table-user-information">
+
+        <tbody>
+
+            <tr><th>Graduação</th></tr>
+            <tr><th>Matrícula</th></tr>
+            <tr><th>Nome</th></tr>
+            <tr><th>Telefone</th></tr>
+            <tr><th>email</th></tr>
+            <tr><th>Endereço</th></tr>
+
+
+
+                {% for pessoa in object_list %}
+            <tr>  <td class="text-center">{{ pessoa.graduacao }}</td> </tr>
+            <tr><td class="text-center">{{ pessoa.matricula }}</td></tr>
+            <td class="text-center">{{ pessoa.nome_guerra }}</td>
+            <td class="text-center">{{ pessoa.tel1 }}</td>
+            <td class="text-center">{{ pessoa.email }}</td>
+            <td class="text-center">{{ pessoa.endereco }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="3">Nenhum registro encontrado</td>
+        </tr>
+        {% endfor %}
+        </tr>
+        </tbody>
+    </table>
+</div>
+{% endblock %}

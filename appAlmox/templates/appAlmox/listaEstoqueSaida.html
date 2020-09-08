@@ -6,26 +6,33 @@
 {% block logo %}
 {% endblock %}
 {% block conteudo %}
-<h1><i>Lista de Material no Estoque</i>
-    <a href="{% url 'entradaNew' %}" class="bg-ifpr text-white p-1 btn-lg active mt-2 float-right">Novo Registro</a>
+
+<h1><i>{{ titulo }}</i></h1>
+    <a href="{% url 'saidaNew' %}" class="bg-ifpr text-white p-1 btn-lg active mt-2 float-right">Novo Registro</a>
 </h1>
 <div class="table-responsive">
     <table class="table table-striped">
         <tr>
+            <th class="text-center">controle</th>
             <th class="text-center">material</th>
             <th class="text-center">quantidade</th>
             <th class="text-center">data de entrada</th>
-            <th class="text-center">nota Fiscal</th>
+            <th class="text-center">destino</th>
+            <th class="text-center">recebedor</th>
+            <th class="text-center">usuario</th>
             <th class="text-center">Alterar / Excluir</th>
-            {% for material in object_list %}
+            {% for saida in object_list %}
         <tr>
-            <td class="text-center">{{ entrada.material }}</td>
-            <td class="text-center">{{ entrada.quant }}</td>
-            <td class="text-center">{{ entrada.data }}</td>
-            <td class="text-center">{{ entrada.nf }}</td>
+            <td class="text-center">{{ saida.nc }}</td>
+            <td class="text-center">{{ saida.nomeMaterialSaida }}</td>
+            <td class="text-center">{{ saida.quantMaterialSaida }}</td>
+            <td class="text-center">{{ saida.data }}</td>
+            <td class="text-center">{{ saida.destino }}</td>
+            <td class="text-center">{{ saida.recebedor }}</td>
+            <td class="text-center">{{ user }}</td>
             <td class="text-center">
-                <a href="{% url 'entradaUp' entrada.pk %}" class="btn btn-warning btn-sm" title="Editar"><i class="fa fa-exchange"></i></a>
-                <a href="{% url 'entradaDel' entrada.pk %}" class="btn btn-danger btn-sm" title="Excluir"><i class="fa fa-trash"></i></a>
+                <a href="{% url 'saidaUp' saida.pk %}" class="btn btn-warning btn-sm" title="Editar"><i class="fa fa-exchange"></i></a>
+                <a href="{% url 'saidaDel' saida.pk %}" class="btn btn-danger btn-sm" title="Excluir"><i class="fa fa-trash"></i></a>
         </tr>
         {% empty %}
         <tr>

@@ -14,7 +14,7 @@ class Listas(TemplateView):
 class PessoaList(LoginRequiredMixin, ListView):
     login_url = reverse_lazy('index')
     model = Pessoa
-    template_name = 'appListas/listaPessoas.html'
+    template_name = 'appPessoa/listaPessoas.html'
     paginate_by = 10
 
     def get_context_data(self, *args, **kwargs):
@@ -61,7 +61,7 @@ class ContatoList(LoginRequiredMixin, ListView):
 
     def get_context_data(self, *args, **kwargs):
         contexto = super().get_context_data(*args, **kwargs)
-        contexto['titulo'] = "contatoList"
+        contexto['titulo'] = "Lista de contatos cadastrados"
         return contexto
 
 
