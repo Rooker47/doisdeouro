@@ -28,6 +28,7 @@ class Entrada(models.Model):
     nf = models.CharField(max_length=10, verbose_name='nota Fiscal', unique=True)
     estoque_minimo = models.PositiveIntegerField()
 
+
     def __str__(self):
         return '{} - {} - {}'.format(self.nomeMaterialEntrada, self.quantMaterialEntrada, self.estoque_minimo)
 
