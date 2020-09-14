@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %} Projeto Dois de Ouro {% endblock %}
+
+
+{% block conteudo %}
+
+<h1><i>Bem vindo à pagina de gerenciamento do Almoxarifado</i></h1>
+
+<div class="card">
+  <h5 class="card-header">{{}}</h5>
+  <div class="card-body">
+    <h5 class="card-title">Título especial</h5>
+    <p class="card-text">Nesta seção vc vai ter acesso ao gerenciamento das entradas de material no Almozarifado.</p>
+    <a href="{% url 'entradaNew' %}" class="btn btn-primary">Nova Entrada de material</a>
+    <a href="{% url 'entradaList' %}" class="btn btn-primary">Lista de Entrada de material</a>
+  </div>
+</div>
+<hr>
+<div class="card">
+  <h5 class="card-header">{{}}</h5>
+  <div class="card-body">
+    <h5 class="card-title">Título especial</h5>
+    <p class="card-text">Nesta seção vc vai ter acesso ao gerenciamento das saídas de material no Almozarifado.</p>
+    <a href="{% url 'saidaNew' %}" class="btn btn-primary">Nova Saída de material</a>
+    <a href="{% url 'saidaList' %}" class="btn btn-primary">Lista de Saída de material</a>
+  </div>
+</div>
+
+{% endblock %}

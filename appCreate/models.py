@@ -91,15 +91,6 @@ class Arma(models.Model):
     def __str__(self):
         return "{} {}".format(self.tipo, self.numero)
 
-# REGISTRO RMB =========================================================================================================
-class RegistroRMB(models.Model):
-    policial = models.ForeignKey(Pessoa, on_delete=models.CASCADE, verbose_name="identificação")
-    arma = models.OneToOneField(Arma, on_delete=models.CASCADE)
-    data = models.DateTimeField(default=timezone.now, auto_now=False, verbose_name="registro em")
-
-    def __str__(self):
-        return "{} {}".format(self.policial, self.arma)
-
 # CONTATO ==============================================================================================================
 class Contato(models.Model):
     tel1 = models.CharField(max_length=16, verbose_name="telefone")

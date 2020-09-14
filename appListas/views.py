@@ -4,11 +4,11 @@ from django.views.generic.list import ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 
-from appCreate.models import Pessoa, Arma, RegistroRMB, Contato, Endereco, Viatura, Guarnicao
+from appCreate.models import Pessoa, Arma, Contato, Endereco, Viatura, Guarnicao
 
 
 class Listas(TemplateView):
-    template_name = "appListas/index.html"
+    template_name = "appListas/home.html"
 
 # LISTAR - PESSOA ========================================================================================================
 class PessoaList(LoginRequiredMixin, ListView):
@@ -38,17 +38,7 @@ class ArmaList(LoginRequiredMixin, ListView):
 
 
 # LISTAR - REGISTRO RMB ================================================================================================
-class RegistroRMBList(LoginRequiredMixin, ListView):
-    login_url = reverse_lazy('login')
-    model = RegistroRMB
-    fields = ['policial', 'arma', 'data']
-    template_name = 'appListas/listaRegistrosRMB.html'
-    paginate_by = 10
 
-    def get_context_data(self, *args, **kwargs):
-        contexto = super().get_context_data(*args, **kwargs)
-        contexto['titulo'] = "Listar Registro na RMB"
-        return contexto
 
 
 # LISTAR - CONTATO =====================================================================================================

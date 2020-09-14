@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'appPessoa.apps.ApppessoaConfig',
     'appUpdate.apps.AppupdateConfig',
     'appUsuarios.apps.AppusuariosConfig',
+    'appSsMB.apps.AppssmbConfig',
 
 # APPs de plugins =====================================================================================================
     'crispy_forms',

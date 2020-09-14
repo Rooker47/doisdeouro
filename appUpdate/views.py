@@ -5,10 +5,10 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from braces.views import GroupRequiredMixin
 from django.urls import reverse_lazy
 
-from appCreate.models import Pessoa, Arma, RegistroRMB, Contato, Endereco, Viatura, Guarnicao
+from appCreate.models import Pessoa, Contato, Endereco, Viatura, Guarnicao
 
 class Update(TemplateView):
-    template_name = "appUpdate/index.html"
+    template_name = "appUpdate/home.html"
 
 # ATUALIZAR - PESSOA ===================================================================================================
 class PessoaUpdate(GroupRequiredMixin, LoginRequiredMixin, UpdateView):
@@ -28,35 +28,9 @@ class PessoaUpdate(GroupRequiredMixin, LoginRequiredMixin, UpdateView):
 
 
 # ATUALIZAR - ARMA =====================================================================================================
-class ArmaUpdate(GroupRequiredMixin, LoginRequiredMixin, UpdateView):
-    login_url = reverse_lazy('login')
-    group_required = u"RMB"
-    model = Arma
-    fields = ['especie', 'tipo', 'numero']
-    template_name = 'appCore/form.html'
-    success_url = reverse_lazy('armaList')
-
-    def get_context_data(self, *args, **kwargs):
-        contexto = super().get_context_data(*args, **kwargs)
-        contexto['titulo'] = "Atualizar Armamento"
-        contexto['botao'] = "Atualizar"
-        return contexto
-
 
 # ATUALIZAR - REGISTRO RMB =============================================================================================
-class RegistroRMBUpdate(GroupRequiredMixin, LoginRequiredMixin, UpdateView):
-    login_url = reverse_lazy('login')
-    group_required = u"RMB"
-    model = RegistroRMB
-    fields = ['policial', 'arma']
-    template_name = 'appCore/form.html'
-    success_url = reverse_lazy('registroRMBList')
 
-    def get_context_data(self, *args, **kwargs):
-        contexto = super().get_context_data(*args, **kwargs)
-        contexto['titulo'] = "Atualizar Registro da RMB"
-        contexto['botao'] = "Atualizar"
-        return contexto
 
 
 # ATUALIZAR - CONTATO ==================================================================================================
