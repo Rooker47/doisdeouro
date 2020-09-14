@@ -5,11 +5,11 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from braces.views import GroupRequiredMixin
 from django.urls import reverse_lazy
 
-from .models import Pessoa, Arma, RegistroRMB, Contato, Endereco, Viatura, Guarnicao
+from .models import Pessoa, Contato, Endereco, Viatura, Guarnicao
 
 
 class Create(TemplateView):
-    template_name = "appCreate/index.html"
+    template_name = "appCreate/home.html"
 
 # CRIAR - PESSOA =======================================================================================================
 class PessoaCreate(GroupRequiredMixin, LoginRequiredMixin, CreateView):
@@ -27,36 +27,10 @@ class PessoaCreate(GroupRequiredMixin, LoginRequiredMixin, CreateView):
         return contexto
 
 
-# CRIAR - ARMA =========================================================================================================
-class ArmaCreate(GroupRequiredMixin, LoginRequiredMixin, CreateView):
-    login_url = reverse_lazy('login')
-    group_required = u"RMB"
-    model = Arma
-    fields = ['especie', 'tipo', 'numero']
-    template_name = 'appCore/form.html'
-    success_url = reverse_lazy('armaList')
-
-    def get_context_data(self, *args, **kwargs):
-        contexto = super().get_context_data(*args, **kwargs)
-        contexto['titulo'] = "Cadastrar Armamento"
-        contexto['botao'] = "Cadastrar"
-        return contexto
 
 
 # CRIAR - REGISTRO RMB =================================================================================================
-class RegistroRMBCreate(GroupRequiredMixin, LoginRequiredMixin, CreateView):
-    login_url = reverse_lazy('login')
-    group_required = u"RMB"
-    model = RegistroRMB
-    fields = ['policial', 'arma', 'data']
-    template_name = 'appCore/form.html'
-    success_url = reverse_lazy('registroRMBList')
 
-    def get_context_data(self, *args, **kwargs):
-        contexto =  super().get_context_data(*args, **kwargs)
-        contexto['titulo'] = "Cadastrar Registro na RMB"
-        contexto['botao'] = "Cadastrar"
-        return contexto
 
 
 # CRIAR - CONTATO ======================================================================================================

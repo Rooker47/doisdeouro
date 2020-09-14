@@ -5,11 +5,11 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from braces.views import GroupRequiredMixin
 from django.urls import reverse_lazy
 
-from appCreate.models import Pessoa, Arma, RegistroRMB, Contato, Endereco, Viatura, Guarnicao
+from appCreate.models import Pessoa, Contato, Endereco, Viatura, Guarnicao
 
 
 class Delete(TemplateView):
-    template_name = "appDelete/index.html"
+    template_name = "appDelete/home.html"
 
 # DELETE - PESSOA ======================================================================================================
 class PessoaDelete(GroupRequiredMixin, LoginRequiredMixin, DeleteView):
@@ -22,36 +22,6 @@ class PessoaDelete(GroupRequiredMixin, LoginRequiredMixin, DeleteView):
     def get_context_data(self, *args, **kwargs):
         contexto = super().get_context_data(*args, **kwargs)
         contexto['titulo'] = "Deletar registro de Pessoas"
-        contexto['botao'] = "Deletar"
-        return contexto
-
-
-# DELETE - ARMA ========================================================================================================
-class ArmaDelete(GroupRequiredMixin, LoginRequiredMixin, DeleteView):
-    login_url = reverse_lazy('login')
-    group_required = u"RMB"
-    model = Arma
-    template_name = 'appDelete/form-excluir.html'
-    success_url = reverse_lazy('armaList')
-
-    def get_context_data(self, *args, **kwargs):
-        contexto = super().get_context_data(*args, **kwargs)
-        contexto['titulo'] = "Deletar registro de Armamento"
-        contexto['botao'] = "Deletar"
-        return contexto
-
-
-# DELETE - REGISTRO R===MB =============================================================================================
-class RegistroRMBDelete(GroupRequiredMixin, LoginRequiredMixin, DeleteView):
-    login_url = reverse_lazy('login')
-    group_required = u"RMB"
-    model = RegistroRMB
-    template_name = 'appDelete/form-excluir.html'
-    success_url = reverse_lazy('registroRMBList')
-
-    def get_context_data(self, *args, **kwargs):
-        contexto = super().get_context_data(*args, **kwargs)
-        contexto['titulo'] = "Deletar registro na RMB"
         contexto['botao'] = "Deletar"
         return contexto
 

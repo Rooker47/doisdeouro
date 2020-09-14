@@ -12,5 +12,6 @@ urlpatterns = [
     path('listar/', include('appListas.urls'), name='listar'),
     path('usuarios/', include('appUsuarios.urls'), name='usuarios'),
     path('almox/', include('appAlmox.urls'), name='almox'),
+    path('ssmb/', include('appSsMB.urls'), name='ssmb'),
     path('pessoa/', include('appPessoa.urls'), name='pessoa'),
 ]

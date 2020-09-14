@@ -10,7 +10,14 @@ from .models import Entrada, Saida, Saldo
 
 
 class Estoque(TemplateView):
-    template_name = "appAlmox/index.html"
+    template_name = "appCore/home.html"
+
+    def get_context_data(self, *args, **kwargs):
+        contexto = super().get_context_data(*args, **kwargs)
+        contexto['titulo'] = "ALMOXARIFADO"
+        contexto['subtitulo1'] = "Entradas"
+        contexto['subtitulo2'] = "Saídas"
+        return contexto
 
 # ================================================ SEÇÃO ENTRADA =======================================================
 # CRIAR - ENTRADA ======================================================================================================

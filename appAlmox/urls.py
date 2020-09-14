@@ -5,6 +5,8 @@ from .views import Estoque
 from .views import EntradaCreate, EntradaUpdate, EntradaDelete, EntradaList, SaidaCreate, SaidaUpdate, SaidaDelete, SaidaList, SaldoCreate, SaldoUpdate, SaldoDelete, SaldoList
 
 urlpatterns = [
+    path('', Estoque.as_view(), name='almoxHome'),
+
     path('entrada', Estoque.as_view(), name='entrada'),
     path('saida', Estoque.as_view(), name='saida'),
     path('saldo', Estoque.as_view(), name='saldo'),

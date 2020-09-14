@@ -8,7 +8,7 @@ from django.urls import reverse_lazy
 
 
 class PessoaInfo(TemplateView):
-    template_name = "appPessoa/index.html"
+    template_name = "appPessoa/home.html"
 
 # ================================================ SEÇÃO ENTRADA =======================================================
 # INFO - PESSOA ======================================================================================================
