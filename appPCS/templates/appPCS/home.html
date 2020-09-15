@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %} Projeto Dois de Ouro {% endblock %}
+
+
+{% block conteudo %}
+
+<div class="jumbotron" align="center"><h1><i>{{titulo}}</i></h1></div>
+<div class="card">
+  <h5 class="card-header">{{subtitulo1}}</h5>
+  <div class="card-body">
+    <p class="card-text">Nesta seção vc vai ter acesso ao gerenciamento das Seções Administrativas</p>
+    <a href="{% url 'lotacaoNew' %}" class="btn btn-primary">Lotar policial</a>
+    <a href="{% url 'lotacaoList' %}" class="btn btn-primary">Lista das Seções</a>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block rodape-links %}
+{% endblock %}
