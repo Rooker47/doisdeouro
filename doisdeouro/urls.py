@@ -14,4 +14,5 @@ urlpatterns = [
     path('almox/', include('appAlmox.urls'), name='almox'),
     path('ssmb/', include('appSsMB.urls'), name='ssmb'),
     path('p1/', include('appPrimeiraSecao.urls'), name='p1'),
+    path('pcs/', include('appPCS.urls'), name='pcs'),
 ]

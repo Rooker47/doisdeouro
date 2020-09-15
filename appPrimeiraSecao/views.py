@@ -15,9 +15,9 @@ class PimeiraSecaoHome(TemplateView):
     def get_context_data(self, *args, **kwargs):
         contexto = super().get_context_data(*args, **kwargs)
         contexto['titulo'] = "PRIMEIRA SEÇÃO"
-        contexto['subtitulo1'] = "Cadastrar pessoas"
-        contexto['subtitulo2'] = "Cadastrar contatos"
-        contexto['subtitulo3'] = "Cadastrar endereços"
+        contexto['subtitulo1'] = "pessoas"
+        contexto['subtitulo2'] = "contatos"
+        contexto['subtitulo3'] = "endereços"
         return contexto
 
 
