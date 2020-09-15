@@ -16,6 +16,7 @@ class SsMBHome(TemplateView):
         contexto['titulo'] = "RESERVA DE MATERIAL BÉLICO"
         contexto['subtitulo1'] = "Armas"
         contexto['subtitulo2'] = "Apetrechos"
+        contexto['subtitulo3'] = "Registros"
         return contexto
 
 # ================================================ SEÇÃO ARMA =======================================================
@@ -85,7 +86,7 @@ class RegistroRMBCreate(GroupRequiredMixin, LoginRequiredMixin, CreateView):
     login_url = reverse_lazy('login')
     group_required = u"RMB"
     model = RegistroRMB
-    fields = ['policial', 'arma', 'data']
+    fields = ['policial', 'arma']
     template_name = 'appCore/form.html'
     success_url = reverse_lazy('registroRMBList')
 
