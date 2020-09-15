@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %} Projeto Dois de Ouro {% endblock %}
+
+
+{% block conteudo %}
+<div class="jumbotron" align="center"><h1><i>{{titulo}}</i></h1></div>
+<div class="card">
+  <h5 class="card-header">{{subtitulo1}}</h5>
+  <div class="card-body">
+    <p class="card-text">Nesta seção vc vai ter acesso ao formulário para registros de pessoas.</p>
+    <a href="{% url 'pessoaNew' %}" class="btn btn-primary">Cadastro pessoas</a>
+    <a href="{% url 'pessoaList' %}" class="btn btn-primary">Lista de pessoas cadastradas</a>
+  </div>
+</div>
+<hr>
+<div class="card">
+  <h5 class="card-header">{{subtitulo2}}</h5>
+  <div class="card-body">
+    <p class="card-text">Nesta seção vc vai ter acesso ao formulário para cadastro de contatos das pessoas cadastradas.</p>
+    <a href="{% url 'contatoNew' %}" class="btn btn-primary">Cadastrar contatos</a>
+    <a href="{% url 'contatoList' %}" class="btn btn-primary">Lista de contatos</a>
+  </div>
+</div>
+<hr>
+<div class="card">
+  <h5 class="card-header">{{subtitulo3}}</h5>
+  <div class="card-body">
+    <p class="card-text">Nesta seção vc vai ter acesso ao formulário para cadastro de endereços das pessoas cadastradas.</p>
+    <a href="{% url 'enderecoNew' %}" class="btn btn-primary">Cadastrar endereços</a>
+    <a href="{% url 'enderecoList' %}" class="btn btn-primary">Lista de endereços</a>
+  </div>
+</div>
+{% endblock %}
+
+{% block rodape-links %}
+{% endblock %}

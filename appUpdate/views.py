@@ -5,26 +5,12 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from braces.views import GroupRequiredMixin
 from django.urls import reverse_lazy
 
-from appCreate.models import Pessoa, Contato, Endereco, Viatura, Guarnicao
+from appCreate.models import Viatura, Guarnicao
 
 class Update(TemplateView):
     template_name = "appUpdate/home.html"
 
-# ATUALIZAR - PESSOA ===================================================================================================
-class PessoaUpdate(GroupRequiredMixin, LoginRequiredMixin, UpdateView):
-    login_url = reverse_lazy('login')
-    group_required = u"P1"
-    model = Pessoa
-    fields = ['graduacao', 'matricula', 'nome_guerra']
-    template_name = 'appCore/form.html'
-    success_url = reverse_lazy('pessoaList')
 
-
-    def get_context_data(self, *args, **kwargs):
-        contexto = super().get_context_data(*args, **kwargs)
-        contexto['titulo'] = "Atualizar Pessoas"
-        contexto['botao'] = "Atualizar"
-        return contexto
 
 
 # ATUALIZAR - ARMA =====================================================================================================
@@ -33,36 +19,10 @@ class PessoaUpdate(GroupRequiredMixin, LoginRequiredMixin, UpdateView):
 
 
 
-# ATUALIZAR - CONTATO ==================================================================================================
-class ContatoUpdate(GroupRequiredMixin, LoginRequiredMixin, UpdateView):
-    login_url = reverse_lazy('login')
-    group_required = u"P1"
-    model = Contato
-    fields = ['idPessoaContato', 'tel1', 'tel2', 'email']
-    template_name = 'appCore/form.html'
-    success_url = reverse_lazy('contatoList')
-
-    def get_context_data(self, *args, **kwargs):
-        contexto = super().get_context_data(*args, **kwargs)
-        contexto['titulo'] = "Atualizar Contato"
-        contexto['botao'] = "Atualizar"
-        return contexto
 
 
-# ATUALIZAR - ENDEREÇO =================================================================================================
-class EnderecoUpdate(GroupRequiredMixin, LoginRequiredMixin, UpdateView):
-    login_url = reverse_lazy('login')
-    group_required = u"P1"
-    model = Endereco
-    fields = ['idPessoaEndereco', 'endereco', 'bairro', 'cidade', 'estado']
-    template_name = 'appCore/form.html'
-    success_url = reverse_lazy('enderecoList')
 
-    def get_context_data(self, *args, **kwargs):
-        contexto = super().get_context_data(*args, **kwargs)
-        contexto['titulo'] = "Atualizar Endereço"
-        contexto['botao'] = "Atualizar"
-        return contexto
+
 
 
 # ATUALIZAR - VIATURA ==================================================================================================

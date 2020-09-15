@@ -1,16 +1,13 @@
 from django.urls import path
 from .views import Delete
 
-from .views import PessoaDelete, ContatoDelete, EnderecoDelete, ViaturaDelete, GuarnicaoDelete
+from .views import ViaturaDelete, GuarnicaoDelete
 
 
 urlpatterns = [
     path('', Delete.as_view(), name='apagar'),
 
-    path('pessoas/<int:pk>', PessoaDelete.as_view(), name='pessoaDel'),
 
-    path('contatos/<int:pk>', ContatoDelete.as_view(), name='contatoDel'),
-    path('enderecos/<int:pk>', EnderecoDelete.as_view(), name='enderecoDel'),
     path('viaturas/<int:pk>', ViaturaDelete.as_view(), name='viaturaDel'),
     path('guarnicao/<int:pk>', GuarnicaoDelete.as_view(), name='guarnicaoDel'),
 ]

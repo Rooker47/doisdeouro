@@ -8,8 +8,8 @@ from django.urls import reverse_lazy
 
 from .models import Arma, RegistroRMB
 
-class Armamento(TemplateView):
-    template_name = "appCore/home.html"
+class SsMBHome(TemplateView):
+    template_name = "appSsMB/home.html"
 
     def get_context_data(self, *args, **kwargs):
         contexto = super().get_context_data(*args, **kwargs)

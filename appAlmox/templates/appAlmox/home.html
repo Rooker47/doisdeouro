@@ -6,27 +6,26 @@
 
 
 {% block conteudo %}
-
-<h1><i>Bem vindo à pagina de gerenciamento do Almoxarifado</i></h1>
-
+<div class="jumbotron" align="center"><h1><i>{{titulo}}</i></h1></div>
 <div class="card">
-  <h5 class="card-header">{{}}</h5>
+  <h5 class="card-header">{{subtitulo1}}</h5>
   <div class="card-body">
-    <h5 class="card-title">Título especial</h5>
-    <p class="card-text">Nesta seção vc vai ter acesso ao gerenciamento das entradas de material no Almozarifado.</p>
-    <a href="{% url 'entradaNew' %}" class="btn btn-primary">Nova Entrada de material</a>
-    <a href="{% url 'entradaList' %}" class="btn btn-primary">Lista de Entrada de material</a>
+    <p class="card-text">Nesta seção vc vai ter acesso ao gerenciamento das saídas de material no Almozarifado.</p>
+    <a href="{% url 'entradaNew' %}" class="btn btn-primary">Nova entrada de material</a>
+    <a href="{% url 'entradaList' %}" class="btn btn-primary">Lista de entradas de material</a>
   </div>
 </div>
 <hr>
 <div class="card">
-  <h5 class="card-header">{{}}</h5>
+  <h5 class="card-header">{{subtitulo2}}</h5>
   <div class="card-body">
-    <h5 class="card-title">Título especial</h5>
     <p class="card-text">Nesta seção vc vai ter acesso ao gerenciamento das saídas de material no Almozarifado.</p>
     <a href="{% url 'saidaNew' %}" class="btn btn-primary">Nova Saída de material</a>
-    <a href="{% url 'saidaList' %}" class="btn btn-primary">Lista de Saída de material</a>
+    <a href="{% url 'saidaList' %}" class="btn btn-primary">Lista de Saídas de material</a>
   </div>
 </div>
 
+{% endblock %}
+
+{% block rodape-links %}
 {% endblock %}

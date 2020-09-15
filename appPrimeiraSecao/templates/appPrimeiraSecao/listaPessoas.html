@@ -22,9 +22,7 @@
          <tr>
             <td class="text-center">{{ pessoa.graduacao }}</td>
             <td class="text-center">{{ pessoa.matricula }}</td>
-            <td class="text-center">
-                 <a href="{% url 'infoPessoas' %}">{{ pessoa.nome_guerra }}</a>
-            </td>
+            <td class="text-center">{{ pessoa.nome_guerra }}</td>
             <td class="text-center">
                 <a href="{% url 'pessoaUp' pessoa.pk %}" class="btn btn-warning btn-sm" title="Editar"><i class="fa fa-exchange"></i></a>
                 <a href="{% url 'pessoaDel' pessoa.pk %}" class="btn btn-danger btn-sm" title="Excluir"><i class="fa fa-trash"></i></a>
