@@ -24,6 +24,15 @@
     <a href="{% url 'armaList' %}" class="btn btn-primary">Lista de Saídas de material</a>
   </div>
 </div>
+<hr>
+<div class="card">
+  <h5 class="card-header">{{subtitulo3}}</h5>
+  <div class="card-body">
+    <p class="card-text">Nesta seção vc vai ter acesso ao gerenciamento dos registros de armamento lançado no serviço operacional.</p>
+    <a href="{% url 'registroRMBNew' %}" class="btn btn-primary">Novo registro</a>
+    <a href="{% url 'registroRMBList' %}" class="btn btn-primary">Lista de registros</a>
+  </div>
+</div>
 
 {% endblock %}
 
