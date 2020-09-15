@@ -9,8 +9,8 @@ from django.urls import reverse_lazy
 from .models import Entrada, Saida, Saldo
 
 
-class Estoque(TemplateView):
-    template_name = "appCore/home.html"
+class AlmoxHome(TemplateView):
+    template_name = "appAlmox/home.html"
 
     def get_context_data(self, *args, **kwargs):
         contexto = super().get_context_data(*args, **kwargs)

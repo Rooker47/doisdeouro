@@ -1,15 +1,15 @@
 from django.urls import path
 
-from .views import Estoque
+from .views import AlmoxHome
 
 from .views import EntradaCreate, EntradaUpdate, EntradaDelete, EntradaList, SaidaCreate, SaidaUpdate, SaidaDelete, SaidaList, SaldoCreate, SaldoUpdate, SaldoDelete, SaldoList
 
 urlpatterns = [
-    path('', Estoque.as_view(), name='almoxHome'),
+    path('', AlmoxHome.as_view(), name='almoxHome'),
 
-    path('entrada', Estoque.as_view(), name='entrada'),
-    path('saida', Estoque.as_view(), name='saida'),
-    path('saldo', Estoque.as_view(), name='saldo'),
+    path('entrada', AlmoxHome.as_view(), name='entrada'),
+    path('saida', AlmoxHome.as_view(), name='saida'),
+    path('saldo', AlmoxHome.as_view(), name='saldo'),
 
     path('entrada/criar/', EntradaCreate.as_view(), name='entradaNew'),
     path('entrada/atualizar/<int:pk>', EntradaUpdate.as_view(), name='entradaUp'),

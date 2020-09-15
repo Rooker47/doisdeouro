@@ -6,26 +6,26 @@
 
 
 {% block conteudo %}
-
-<div class="jumbotron" align="center"><h1><i>Bem vindo à pagina de gerenciamento da RMB</i></h1></div>
+<div class="jumbotron" align="center"><h1><i>{{titulo}}</i></h1></div>
 <div class="card">
-  <h5 class="card-header">Armas</h5>
+  <h5 class="card-header">{{subtitulo1}}</h5>
   <div class="card-body">
-    <h5 class="card-title">Título especial</h5>
-    <p class="card-text">Nesta seção vc vai ter acesso ao gerenciamento das armas da RMB.</p>
-    <a href="{% url 'armaNew' %}" class="btn btn-primary">Novo Cadastro de Arma</a>
-    <a href="{% url 'armaList' %}" class="btn btn-primary">Lista das Armas existentes na RMB</a>
+    <p class="card-text">Nesta seção vc vai ter acesso ao gerenciamento das saídas de material no Almozarifado.</p>
+    <a href="{% url 'armaNew' %}" class="btn btn-primary">Nova entrada de material</a>
+    <a href="{% url 'armaList' %}" class="btn btn-primary">Lista de entradas de material</a>
   </div>
 </div>
 <hr>
 <div class="card">
-  <h5 class="card-header">Apetrechos</h5>
+  <h5 class="card-header">{{subtitulo2}}</h5>
   <div class="card-body">
-    <h5 class="card-title">Título especial</h5>
-    <p class="card-text">Nesta seção vc vai ter acesso ao gerenciamento dos apetrechos.</p>
-    <a href="{% url 'registroRMBNew' %}" class="btn btn-primary">Novo Cadastro de aapetrecho</a>
-    <a href="{% url 'registroRMBList' %}" class="btn btn-primary">Lista de apetrechos existentes na RMB</a>
+    <p class="card-text">Nesta seção vc vai ter acesso ao gerenciamento das saídas de material no Almozarifado.</p>
+    <a href="{% url 'armaNew' %}" class="btn btn-primary">Nova Saída de material</a>
+    <a href="{% url 'armaList' %}" class="btn btn-primary">Lista de Saídas de material</a>
   </div>
 </div>
 
+{% endblock %}
+
+{% block rodape-links %}
 {% endblock %}

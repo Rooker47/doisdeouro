@@ -1,5 +1,5 @@
 from django.db import models
-from appCreate.models import Pessoa
+from appPrimeiraSecao.models import Pessoa
 from django.utils import timezone
 
 MOVIMENTO = [

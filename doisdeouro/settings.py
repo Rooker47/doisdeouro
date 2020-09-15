@@ -44,10 +44,10 @@ INSTALLED_APPS = [
     'appAlmox.apps.AppalmoxConfig',
     'appListas.apps.ApplistasConfig',
     'appNotaEmpenho.apps.AppnotaempenhoConfig',
-    'appPessoa.apps.ApppessoaConfig',
     'appUpdate.apps.AppupdateConfig',
     'appUsuarios.apps.AppusuariosConfig',
     'appSsMB.apps.AppssmbConfig',
+    'appPrimeiraSecao.apps.AppprimeirasecaoConfig',
 
 # APPs de plugins =====================================================================================================
     'crispy_forms',

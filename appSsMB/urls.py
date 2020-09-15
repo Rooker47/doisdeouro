@@ -1,11 +1,11 @@
 from django.urls import path
 
-from .views import Armamento
+from .views import SsMBHome
 
 from .views import ArmaCreate, ArmaUpdate, ArmaDelete, ArmaList, RegistroRMBCreate, RegistroRMBUpdate, RegistroRMBDelete, RegistroRMBList
 
 urlpatterns = [
-    path('', Armamento.as_view(), name='SsMBHome'),
+    path('', SsMBHome.as_view(), name='SsMBHome'),
 
     path('armas/criar/', ArmaCreate.as_view(), name='armaNew'),
     path('armas/atualizar/<int:pk>', ArmaUpdate.as_view(), name='armaUp'),
