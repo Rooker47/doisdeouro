@@ -21,7 +21,6 @@ DESTINO = [
 ]
 
 class Entrada(models.Model):
-    nc = models.PositiveIntegerField(primary_key=True, auto_created=True)
     nomeMaterialEntrada = models.CharField(max_length=100, verbose_name='Nome do material')
     quantMaterialEntrada = models.PositiveIntegerField(verbose_name='Quantidade do material')
     data = models.DateTimeField(default=timezone.now)
@@ -34,7 +33,6 @@ class Entrada(models.Model):
 
 
 class Saida(models.Model):
-    nc = models.PositiveIntegerField(primary_key=True, auto_created=True)
     nomeMaterialSaida = models.CharField(max_length=100, verbose_name='Nome do material')
     quantMaterialSaida = models.PositiveIntegerField(verbose_name='Quantidade do material')
     data = models.DateTimeField(default=timezone.now)
@@ -46,7 +44,6 @@ class Saida(models.Model):
 
 
 class Saldo(models.Model):
-    ncSaldo = models.PositiveIntegerField(primary_key=True, auto_created=True, editable=False)
     materialSaldo = models.CharField(max_length=100)
     quantSaldo = models.PositiveIntegerField(default=None)
     estoqueMinimoSaldo = models.PositiveIntegerField(default=None)

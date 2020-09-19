@@ -25,7 +25,7 @@ class EntradaCreate(GroupRequiredMixin, LoginRequiredMixin, CreateView):
     login_url = reverse_lazy('login')
     group_required = u"Almoxarifado"
     model = Entrada
-    fields = ['nc', 'nomeMaterialEntrada', 'quantMaterialEntrada', 'data', 'nf', 'estoque_minimo']
+    fields = ['nomeMaterialEntrada', 'quantMaterialEntrada', 'data', 'nf', 'estoque_minimo']
     template_name = 'appCore/form.html'
     success_url = reverse_lazy('entradaList')
 
@@ -41,7 +41,7 @@ class EntradaUpdate(GroupRequiredMixin, LoginRequiredMixin, UpdateView):
     login_url = reverse_lazy('login')
     group_required = u"Almoxarifado"
     model = Entrada
-    fields = ['nc', 'nomeMaterialEntrada', 'quantMaterialEntrada', 'data', 'nf', 'estoque_minimo']
+    fields = ['nomeMaterialEntrada', 'quantMaterialEntrada', 'nf', 'estoque_minimo']
     template_name = 'appCore/form.html'
     success_url = reverse_lazy('entradaList')
 
@@ -86,7 +86,7 @@ class SaidaCreate(GroupRequiredMixin, LoginRequiredMixin, CreateView):
     login_url = reverse_lazy('login')
     group_required = u"Almoxarifado"
     model = Saida
-    fields = ['nc', 'nomeMaterialSaida', 'quantMaterialSaida', 'data', 'destino', 'recebedor']
+    fields = ['nomeMaterialSaida', 'quantMaterialSaida', 'data', 'destino', 'recebedor']
     template_name = 'appCore/form.html'
     success_url = reverse_lazy('saidaList')
 
@@ -102,7 +102,7 @@ class SaidaUpdate(GroupRequiredMixin, LoginRequiredMixin, UpdateView):
     login_url = reverse_lazy('login')
     group_required = u"Almoxarifado"
     model = Saida
-    fields = ['nc', 'nomeMaterialSaida', 'quantMaterialSaida', 'data', 'destino', 'recebedor']
+    fields = ['nomeMaterialSaida', 'quantMaterialSaida', 'data', 'destino', 'recebedor']
     template_name = 'appCore/form.html'
     success_url = reverse_lazy('saidaList')
 
@@ -148,7 +148,7 @@ class SaldoCreate(GroupRequiredMixin, LoginRequiredMixin, CreateView):
     login_url = reverse_lazy('login')
     group_required = u"Almoxarifado"
     model = Saldo
-    fields = ['nc', 'nomeMaterialSaida', 'quantMaterialSaida', 'data', 'destino', 'recebedor']
+    fields = ['nomeMaterialSaida', 'quantMaterialSaida', 'data', 'destino', 'recebedor']
     template_name = 'appCore/form.html'
     success_url = reverse_lazy('saldoList')
 
@@ -164,7 +164,7 @@ class SaldoUpdate(GroupRequiredMixin, LoginRequiredMixin, UpdateView):
     login_url = reverse_lazy('login')
     group_required = u"Almoxarifado"
     model = Saldo
-    fields = ['nc', 'nomeMaterialSaida', 'quantMaterialSaida', 'data', 'destino', 'recebedor']
+    fields = ['nomeMaterialSaida', 'quantMaterialSaida', 'data', 'destino', 'recebedor']
     template_name = 'appCore/form.html'
     success_url = reverse_lazy('saldoList')
 
