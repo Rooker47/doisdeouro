@@ -1,19 +1,18 @@
 import os
-from pathlib import Path
-from decouple import config
-from dj_database_url import parse as dburl
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('SECRET_KEY')
+SECRET_KEY = 'lre&y1+864h8_6yox-!_3#nkfnkydc6a!tx&=^^p+jht@gs(ql'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', default=False, cast=bool)
+DEBUG = True
 
 ALLOWED_HOSTS = ['doisdeoouro.herokuapp.com', '127.0.0.1']
 
@@ -26,7 +25,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-# MINHAS APPs =========================================================================================================
+    # MINHAS APPs
+    # =========================================================================================================
     'appCore.apps.AppcoreConfig',
     'appAlmox.apps.AppalmoxConfig',
     'appUsuarios.apps.AppusuariosConfig',
@@ -34,7 +34,8 @@ INSTALLED_APPS = [
     'appPrimeiraSecao.apps.AppprimeirasecaoConfig',
     'appPCS.apps.ApppcsConfig',
 
-# APPs de plugins =====================================================================================================
+    # APPs de plugins
+    # =====================================================================================================
     'crispy_forms',
 ]
 
@@ -75,15 +76,12 @@ WSGI_APPLICATION = 'doisdeouro.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 default_dburl = 'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
 
-DATABASES = {'default': config('DATABASE_URL', default=default_dburl, cast=dburl), }
-#
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -127,7 +125,3 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 LOGIN_REDIRECT_URL = 'index'
 LOGIN_URL = 'login'
 LOGOUT_REDIRECT_URL = 'index'
-
-#Configurações de E-mail
-EMAIL_HOST = config('EMAIL_HOST', default='localhost')
-EMAIL_PORT = config('EMAIL_PORT', default=25, cast=int)
